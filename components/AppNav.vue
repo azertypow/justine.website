@@ -43,12 +43,7 @@
 
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
-import {useAppScrollToBottom, useAppScrollTopPosition} from "~/composable";
-
-const props = defineProps<{
-    message?: string
-}>()
+import {useAppScrollToBottom} from "~/composable";
 </script>
 
 
