@@ -1,0 +1,14 @@
+@import "var";
+
+@import "grid";
+@import "typo";
+
+html {
+  font-size: var(----rem-unit);
+  font-family: sans-serif;
+  background-color: var(--app-color-beige);
+}
+
+body {
+  margin: 0;
+}
