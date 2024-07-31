@@ -5,16 +5,19 @@
                  :href="`projects/${slug}`"
       >
         <div class="v-app-project__text">
-          <h3 class="v-app-project__title app-rm-margins"
-          >{{title}}</h3>
-          <div class="v-app-project__subtitle">{{subtitle}}</div>
-          <div class="v-app-project__year">{{year}}</div>
-          <div class="v-app-project__category">{{category}}</div>
+          <div class="v-app-project__title">
+            <h3 class="app-rm-margins v-app-project__title__content"
+            >{{title}}</h3>
+          </div>
+          <div class="v-app-project__subtitle v-app-project__project-hover-transition">{{subtitle}}</div>
+          <div class="v-app-project__year v-app-project__project-hover-transition">{{year}}</div>
         </div>
 
         <img class="v-app-project__img app-display-block"
              :src="src"
              alt="image de couverture pour le projet"/>
+
+        <div class="v-app-project__category v-app-project__project-hover-transition">{{category}}</div>
       </nuxt-link>
     </section>
 </template>
@@ -46,10 +49,6 @@ const props = defineProps<{
   position: relative;
   user-select: none;
   cursor: pointer;
-
-  //&:hover {
-  //  box-shadow: inset 0 0 20px 12px var(--app-color-beige);
-  //}
 }
 
 a {
@@ -58,41 +57,77 @@ a {
 }
 
 .v-app-project__title {
-  font-size: 2rem;
+  position: relative;
   display: block;
   width: 100%;
+  box-sizing: border-box;
+  padding-top: 1rem;
+  padding-left: 2rem;
 
-  .v-app-project:hover & {
+  .v-app-project__title__content {
+    position: relative;
+    z-index: 10;
+    font-size: 2rem;
+  }
+
+  &:before {
+    --v-app-project__title__content__gradient-height: 20px;
+
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: var(--app-color-blue);
-    box-shadow: 0 0 50px 50px var(--app-color-blue);
+    transition: box-shadow .25s .25s ease-in-out, transform .5s ease-in-out;
+    box-shadow: 0 0 0 0 var(--app-color-blue);
+    transform: translate3d(0, calc(-100% - (var(--v-app-project__title__content__gradient-height) * 2) ), 0) ;
+
+    .v-app-project:hover & {
+      transform: translate3d(0, 0%, 0) ;
+      box-shadow: 0 0 var(--v-app-project__title__content__gradient-height) var(--v-app-project__title__content__gradient-height) var(--app-color-blue)
+    }
   }
 }
 
 .v-app-project__text {
   position: absolute;
-  padding-top: 1rem;
-  padding-left: 2rem;
   top: 0;
   left: 0;
   z-index: 100;
   width: 100%;
 }
 
-.v-app-project__category {
-  opacity: 0;
-
-  .v-app-project:hover & {
-    opacity: 1;
-    transition: opacity 150ms 250ms ease-in-out;
-  }
+.v-app-project__subtitle {
+  box-sizing: border-box;
+  padding-left: 2rem;
+  z-index: 10;
+  position: relative;
 }
 
 .v-app-project__year {
+  box-sizing: border-box;
+  padding-left: 2rem;
+  z-index: 10;
+  position: relative;
+}
+
+.v-app-project__category {
+  z-index: 100;
+  position: absolute;
+  bottom: var(--app-gutter);
+  right: calc( 2 * var(--app-gutter));
+  box-sizing: border-box;
+  color: var(--app-color-blue);
+}
+
+.v-app-project__project-hover-transition {
   opacity: 0;
 
   .v-app-project:hover & {
     opacity: 1;
-    transition: opacity 150ms 350ms ease-in-out;
+    transition: opacity 500ms ease-in-out;
   }
 }
 
@@ -103,13 +138,14 @@ a {
   object-fit: cover;
   position: relative;
 
-  transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+  transition: transform 1s ease-in-out;
   opacity: 1;
   transform: scale(1);
 
-  //.v-app-project:hover & {
-  //  opacity: 0;
-  //  transform: scale(1.05);
-  //}
+  .v-app-project:hover & {
+    transition-duration: 2.5s;
+    transition-timing-function: linear;
+    transform: scale(1.05);
+  }
 }
 </style>

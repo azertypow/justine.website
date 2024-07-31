@@ -1,14 +1,18 @@
+@import "font-import.css";
+
 @import "var";
 
 @import "grid";
 @import "typo";
 
 html {
-  font-size: var(----rem-unit);
-  font-family: sans-serif;
-  background-color: var(--app-color-beige);
+  font-size: var(--app-rem-unit);
+  font-family: "OTRima", sans-serif;
+  background-color: var(--app-color-blue);
 }
 
 body {
   margin: 0;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }

@@ -1,5 +1,9 @@
 import type {Ref} from "vue";
 
-export const useAppIsScrolled: () => Ref<boolean> = () => {
-    return useState('useAppIsScrolled', () => false)
+export const useAppScrollToBottom: () => Ref<'toTop' | 'toBottom'> = () => {
+    return useState('useAppScrollToBottom', () => 'toTop')
+}
+
+export const useAppScrollTopPosition: () => Ref<number> = () => {
+    return useState('useAppScrollTopPosition', () => 0)
 }

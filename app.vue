@@ -9,11 +9,13 @@
 
 <script lang="ts">
 import {nextTick} from "vue";
-import {useAppIsScrolled} from "~/composable";
+import {useAppScrollToBottom, useAppScrollTopPosition} from "~/composable";
 
 nextTick(() => {
     window.addEventListener('scroll', () => {
-        useAppIsScrolled().value = window.scrollY > 10
+        console.log( window.scrollY > useAppScrollTopPosition().value, window.scrollY,  useAppScrollTopPosition().value)
+        useAppScrollToBottom().value = (window.scrollY > useAppScrollTopPosition().value) ? 'toBottom' : 'toTop'
+        useAppScrollTopPosition().value = window.scrollY
     })
 })
 </script>
