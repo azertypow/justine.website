@@ -14,7 +14,7 @@ export function fetchSiteInfo(): ApiSiteInfo {
             {
                 title: "Angelina",
                 category: "Actrice",
-                src: "img/angelina galpon e murcia artengo web  010.jpg",
+                src: "img/angelinagalponemurciaartengoweb010.jpg",
                 year: "2023",
                 slug: "angelina",
                 subtitle: "Cie Théâtre EnQuete",
