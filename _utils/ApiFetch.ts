@@ -6,7 +6,7 @@ export function fetchSiteInfo(): ApiSiteInfo {
             {
                 title: "Horrendous Banquet",
                 category: "Cie Théâtre En Quete",
-                src: "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                src: "img/Horrendous banquet Galpon e murcia artengo 020.jpg",
                 year: "2022",
                 slug: "horrendous",
                 subtitle: "Studio d'Action Théâtrale",
@@ -14,7 +14,7 @@ export function fetchSiteInfo(): ApiSiteInfo {
             {
                 title: "Angelina",
                 category: "Actrice",
-                src: "https://images.unsplash.com/photo-1531666692006-da240046a095?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                src: "img/angelina galpon e murcia artengo web  010.jpg",
                 year: "2023",
                 slug: "angelina",
                 subtitle: "Cie Théâtre EnQuete",
@@ -22,7 +22,7 @@ export function fetchSiteInfo(): ApiSiteInfo {
             {
                 title: "Borges",
                 category: "Écriture",
-                src: "https://images.unsplash.com/photo-1514489024785-d5ba8dfb2198?q=80&w=776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                src: "img/Herodiasse Galpon Elisa Murcia Artengo 027.jpg",
                 year: "2020",
                 slug: "borges",
                 subtitle: "Studio d'Action Théâtrale",
@@ -30,7 +30,7 @@ export function fetchSiteInfo(): ApiSiteInfo {
             {
                 title: "Enquete",
                 category: "Actrice",
-                src: "https://plus.unsplash.com/premium_photo-1682096578903-71faffaec40d?q=80&w=2648&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                src: "img/MG_0351.JPG",
                 year: "2021",
                 slug: "enquete",
                 subtitle: "Cie Théâtre EnQuete",
@@ -38,7 +38,7 @@ export function fetchSiteInfo(): ApiSiteInfo {
             {
                 title: "La traversée d'Antigone",
                 category: "Cie Théâtre En Quete",
-                src: "https://plus.unsplash.com/premium_photo-1682096578903-71faffaec40d?q=80&w=2648&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                src: "img/Scherm­afbeelding 2024-04-12 om 08.14.24.png",
                 year: "2022",
                 slug: "traverse",
                 subtitle: "Lorem sous-titre",
@@ -52,7 +52,7 @@ export function fetchProjectBySlug(): ApiPageContent {
     return {
         title: 'Angelina',
         category: 'Actrice',
-        imageCover: 'https://plus.unsplash.com/premium_photo-1682096513300-cbcf7242aea2?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        imageCover: '/justine.website/img/angelinagalponemurciaartengoweb010.jpg',
         intro: `
             <p>Débuté en 2018 avec comme point de départ des interrogations sur le monde de la prostitution, Angelina est une pièce de théâtre sur le stigmate de putain, montée à partir d’une écriture originale, créée sur base d’une enquête, de témoignages, et d’une recherche personnelle.</p>
             <p>Tressant une narration avec du matériaux documentaire, le spectacle s'articule autour d'une trame dans laquelle interviennent régulièrement des témoignages audio de travailleuses du sexe, provenant de diverses sources : des documentaires, des émissions radios, ou des interviews.</p>
@@ -76,7 +76,7 @@ export function fetchProjectBySlug(): ApiPageContent {
             },
             {
                 type: 'image',
-                src: 'https://images.unsplash.com/photo-1504609813442-a8924e83f76e?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                src: '/justine.website/img/angelina galpon e murcia artengo web  017.jpg',
                 isFull: false,
             },
             {
@@ -127,7 +127,7 @@ export function fetchProjectBySlug(): ApiPageContent {
             },
             {
                 type: 'image',
-                src: 'https://plus.unsplash.com/premium_photo-1685015991843-682e96076102?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                src: '/justine.website/img/Borges Galpon_ e murcia artengo web 029.jpg',
                 isFull: true,
             },
         ]

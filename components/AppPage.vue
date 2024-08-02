@@ -5,7 +5,7 @@
               :style="{
                 backgroundImage: `url(${content.imageCover})`,
               }"
-      >
+      >{{`url(${content.imageCover})`}}
         <div class="app-flex app-flex--justify-center">
           <div class="app-flex__col-18">
             <h2 class="v-app-page__title" >{{content.title}}</h2>
