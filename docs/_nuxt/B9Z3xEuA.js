@@ -1,1 +1,0 @@
-import{_ as c,c as e,o as t}from"./BUpugVuz.js";const o={},s={class:"v-actrice"};function a(r,_){return t(),e("section",s)}const i=c(o,[["render",a],["__scopeId","data-v-a215292c"]]);export{i as default};
