@@ -1,6 +1,7 @@
 import type {ApiPageContent, ApiSiteInfo} from "~/_utils/ApiDefinitions";
 
-const apiBaseUrl = 'http://localhost:8000'
+// const apiBaseUrl = 'http://localhost:8000'
+const apiBaseUrl = 'https://justine.sdrvl.ch'
 
 export async function fetchSiteInfo(): Promise<ApiSiteInfo> {
     const response = await fetch(`${apiBaseUrl}/site-info`)
