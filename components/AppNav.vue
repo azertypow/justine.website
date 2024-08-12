@@ -55,6 +55,7 @@ import {useAppScrollToBottom} from "~/composable";
   height: var(--app-nav-height);
   transition: background .5s .25s ease-in-out, box-shadow .25s .0s ease-in-out;
   user-select: none;
+  background: var(--app-color-beige);
 
   &.v-app-nav--with-gradient, &:hover {
     background: var(--app-color-beige);
@@ -68,8 +69,8 @@ import {useAppScrollToBottom} from "~/composable";
   cursor: pointer;
   user-select: none;
   transition: transform .5s ease-in-out, opacity .5s ease-in-out;
-  transform: translate3d(0, -100%, 0);
-  opacity: 0;
+  //transform: translate3d(0, -100%, 0);
+  //opacity: 0;
 
   .v-app-nav--with-gradient &,
   .v-app-nav:hover & {
