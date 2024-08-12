@@ -10,7 +10,7 @@
                 v-for="project of siteInfos.projectsInfos">
           <AppProject
                   :title="project.title"
-                  :category="project.tags.title"
+                  :category="project.tags"
                   :src="project.cover[0]?.url || ''"
                   :year="project.date"
                   :slug="project.slug"

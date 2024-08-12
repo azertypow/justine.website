@@ -9,7 +9,7 @@ export type ApiSiteInfo = {
         cover: ApiImage[]
         title: string
         date: string
-        tags: ApiTags
+        tags: ApiTags[]
         slug: string
         subtitle: string
     }[]

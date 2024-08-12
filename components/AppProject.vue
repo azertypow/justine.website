@@ -9,15 +9,16 @@
             <h3 class="app-rm-margins v-app-project__title__content"
             >{{title}}</h3>
           </div>
-          <div class="v-app-project__subtitle v-app-project__project-hover-transition">{{subtitle}}</div>
-          <div class="v-app-project__year v-app-project__project-hover-transition">{{year}}</div>
+          <div class="v-app-project__subtitle v-app-project__project-hover-transition"><span v-for="tags of category">{{tags.title}}, </span></div>
+          <div class="v-app-project__year v-app-project__project-hover-transition">{{new Date(year).getFullYear()}}</div>
         </div>
 
         <img class="v-app-project__img app-display-block"
              :src="src"
              alt="image de couverture pour le projet"/>
 
-        <div class="v-app-project__category v-app-project__project-hover-transition">{{category}}</div>
+        <div class="v-app-project__category v-app-project__project-hover-transition"
+        >{{subtitle}}</div>
       </nuxt-link>
     </section>
 </template>
@@ -25,12 +26,13 @@
 
 <script setup lang="ts">
 import {defineProps} from 'vue'
+import type {ApiTags} from "~/_utils/ApiDefinitions";
 
 const props = defineProps<{
     src: string
     title: string
     year: string
-    category: string
+    category: ApiTags[]
     slug: string
     subtitle: string
 }>()
@@ -77,7 +79,7 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% + 2rem);
     background: var(--app-color-blue);
     transition: box-shadow .25s .25s ease-in-out, transform .5s ease-in-out;
     box-shadow: 0 0 0 0 var(--app-color-blue);
