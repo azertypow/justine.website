@@ -10,9 +10,9 @@
                 v-for="project of siteInfos.projectsInfos">
           <AppProject
                   :title="project.title"
-                  :category="project.category"
-                  :src="project.src"
-                  :year="project.year"
+                  :category="project.tags.title"
+                  :src="project.cover[0]?.url || ''"
+                  :year="project.date"
                   :slug="project.slug"
                   :subtitle="project.subtitle"
           />
@@ -33,8 +33,8 @@ import {fetchSiteInfo} from "~/_utils/ApiFetch";
 
 const siteInfos: Ref<UnwrapRef<null | ApiSiteInfo>> = ref(null)
 
-onMounted(() => {
-    siteInfos.value = fetchSiteInfo()
+onMounted(async () => {
+    siteInfos.value = await fetchSiteInfo()
 })
 </script>
 

@@ -20,10 +20,16 @@ import type {ApiPageContent} from "~/_utils/ApiDefinitions";
 import {fetchProjectBySlug} from "~/_utils/ApiFetch";
 
 const project: Ref<UnwrapRef<null | ApiPageContent>> = ref(null)
+const route = useRoute()
 
 onMounted(() => {
-    project.value = fetchProjectBySlug()
+    loadPageContent()
 })
+
+async function loadPageContent() {
+    if( typeof route.params.slug !== 'string') return
+    project.value = await fetchProjectBySlug(route.params.slug)
+}
 
 
 </script>

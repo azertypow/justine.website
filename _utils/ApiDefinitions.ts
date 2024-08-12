@@ -1,37 +1,79 @@
 export type ApiSiteInfo = {
+    'tags': {
+        "title": string,
+        "uuid": string,
+        "uri": string,
+        "slug": string
+    }[]
     projectsInfos: {
-        src: string
+        cover: ApiImage[]
         title: string
-        year: string
-        category: ApiCategories
+        date: string
+        tags: ApiTags
         slug: string
-        subtitle: string,
+        subtitle: string
     }[]
 }
 
-export type ApiCategories = "Cie Théâtre En Quete" | "Actrice" | "Écriture"
+export type ApiImage = {
+    "caption": string | null,
+    "alt": string | null,
+    "link": string | null,
+    "photoCredit": string | null,
+    "url": string,
+    "mediaUrl": string,
+    "width": number,
+    "height": number,
+    "resize": {
+        "tiny": string,
+        "small": string,
+        "reg": string,
+        "large": string,
+        "xxl": string
+    }
+}
+
+export type ApiTags = {
+    "title":    string
+    "uid":      string
+    "uuid":     string
+    "uri":      string
+}
 
 export type ApiPageContent = {
     title: string
-    category: ApiCategories
-    intro?: string
-    imageCover: string
-    content: (ApiPageContentTitle | ApiPageContentBody | ApiPageContentImage)[]
+    subtitle: string
+    tags: ApiTags[]
+    introduction?: string
+    cover: ApiImage[]
+    htmlcontent: (ApiPageContentTitle | ApiPageContentBody | ApiPageContentImage)[]
 }
 
 export type ApiPageContentTitle = {
-    type: 'title'
-    level: 'h2' | 'h3'
-    value: string
+    type: 'heading'
+    content: {
+        level: 'h2' | 'h3'
+        text: string
+    },
+    id: string,
+    isHidden: boolean,
 }
 
 export type ApiPageContentBody = {
-    type: 'body'
-    content: string
+    type: 'text'
+    content: {
+        'text': string
+    }
 }
 
 export type ApiPageContentImage = {
-    type: 'image'
-    src: string
-    isFull: boolean
+    "type": "image",
+    //---
+    "content": {
+        "image": string[],
+        "isfullwidth": "false" | "true"
+    },
+    "id": string,
+    "isHidden": false,
+    "images": ApiImage[]
 }

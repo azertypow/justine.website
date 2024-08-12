@@ -3,50 +3,50 @@
     >
       <header class="v-app-page__header"
               :style="{
-                backgroundImage: `url(${content.imageCover})`,
+                backgroundImage: `url(${content.cover[0].resize.xxl})`,
               }"
-      >{{`url(${content.imageCover})`}}
+      >
         <div class="app-flex app-flex--justify-center">
           <div class="app-flex__col-18">
             <h2 class="v-app-page__title" >{{content.title}}</h2>
-            <h3 class="v-app-page__category" >{{content.category}}</h3>
+            <h3 class="v-app-page__subtitle">{{content.subtitle}}</h3>
           </div>
         </div>
       </header>
       <div class="app-flex app-flex--justify-center">
 
         <div class="app-flex__col-18"
-             v-if="content.intro"
+             v-if="content.introduction"
         >
-          <div class="v-app-page__intro" v-html="content.intro"/>
+          <div class="v-app-page__intro" v-html="content.introduction"/>
         </div>
 
-        <template v-for="blockContent of content.content">
+        <template v-for="blockContent of content.htmlcontent">
 
-          <template v-if="blockContent.type === 'title'">
+          <template v-if="blockContent.type === 'heading'">
             <div class="app-flex__col-18">
-              <h2 v-if="blockContent.level === 'h2'">{{blockContent.value}}</h2>
-              <h3 v-else-if="blockContent.level === 'h3'">{{blockContent.value}}</h3>
-              <div v-else>{{blockContent.value}}</div>
+              <h2 v-if="blockContent.content.level === 'h2'">{{ blockContent.content.text }}</h2>
+              <h3 v-else-if="blockContent.content.level === 'h3'">{{ blockContent.content.text }}</h3>
+              <div v-else>{{ blockContent.content.text }}</div>
             </div>
           </template>
 
           <template v-if="blockContent.type === 'image'">
             <div class="app-flex__col-24"
-                 v-if="blockContent.isFull"
+                 v-if="blockContent.content.isfullwidth === 'true'"
             >
-              <img :src="blockContent.src">
+              <img :src="blockContent.images[0]?.url" :alt="blockContent.images[0]?.alt || 'Image du projet'">
             </div>
             <div class="app-flex__col-14"
                  v-else
             >
-              <img :src="blockContent.src">
+              <img :src="blockContent.images[0]?.url" alt="image de projet">
             </div>
           </template>
 
-          <template v-if="blockContent.type === 'body'">
+          <template v-if="blockContent.type === 'text'">
             <div class="app-flex__col-16"
-                 v-html="blockContent.content"
+                 v-html="blockContent.content.text"
             ></div>
           </template>
 
@@ -77,6 +77,7 @@ const props = defineProps<{
   height: calc(100vh - var(--app-nav-height) );
   background-size: cover;
   margin-bottom: 2rem;
+  background-position: 75% center;
 }
 
 .v-app-page__intro {
@@ -89,6 +90,10 @@ img {
 }
 
 .v-app-page__title {
+  color: var(--app-color-blue);
+}
+
+.v-app-page__subtitle {
   color: var(--app-color-blue);
 }
 

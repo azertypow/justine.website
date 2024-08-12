@@ -25,13 +25,12 @@
 
 <script setup lang="ts">
 import {defineProps} from 'vue'
-import type {ApiCategories} from "~/_utils/ApiDefinitions";
 
 const props = defineProps<{
     src: string
     title: string
     year: string
-    category: ApiCategories
+    category: string
     slug: string
     subtitle: string
 }>()
