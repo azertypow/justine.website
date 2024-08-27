@@ -108,7 +108,10 @@ const props = defineProps<{
 }
 
 .v-app-page__intro {
-  font-size: 1.25rem;
+  :deep(p) {
+    font-size: 1.325rem;
+    line-height: 1.25em;
+  }
 }
 
 img {

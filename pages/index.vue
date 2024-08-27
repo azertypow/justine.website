@@ -1,13 +1,12 @@
 <template>
-    <section
-        class="v-index"
+    <section class="v-index"
     >
-
+      <div class=""></div>
       <div class="app-flex"
            v-if="siteInfos"
       >
         <div class="app-flex__col-12 v-index__project-box"
-                v-for="project of siteInfos.projectsInfos">
+                v-for="project of projectToShow">
           <AppProject
                   :title="project.title"
                   :category="project.tags"
@@ -26,16 +25,30 @@
 
 
 <script setup lang="ts">
-import {defineProps, type Ref, type UnwrapRef} from 'vue'
 import AppProject from "~/components/AppProject.vue";
-import type {ApiSiteInfo} from "~/_utils/ApiDefinitions";
-import {fetchSiteInfo} from "~/_utils/ApiFetch";
+import {useAppActiveFilter, useAppSiteInfo} from "~/composable";
+import type {ApiImage, ApiTags} from "~/_utils/ApiDefinitions";
 
-const siteInfos: Ref<UnwrapRef<null | ApiSiteInfo>> = ref(null)
+const siteInfos = useAppSiteInfo()
+const appActiveFilter: Ref<string | null> = useAppActiveFilter()
 
-onMounted(async () => {
-    siteInfos.value = await fetchSiteInfo()
+const projectToShow: ComputedRef<{
+    cover: ApiImage[];
+    title: string;
+    date: string;
+    tags: ApiTags[];
+    slug: string;
+    subtitle: string
+}[] | undefined> = computed(() => {
+    const activeFilter = appActiveFilter.value
+
+    if(activeFilter === null) return siteInfos.value?.projectsInfos
+
+    return siteInfos.value?.projectsInfos.filter((value) => {
+        return value.tags.map(value => value.title).includes(activeFilter)
+    })
 })
+
 </script>
 
 

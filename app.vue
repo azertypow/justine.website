@@ -9,14 +9,19 @@
 
 <script setup lang="ts">
 import {nextTick} from "vue";
-import {useAppScrollToBottom, useAppScrollTopPosition} from "~/composable";
+import {useAppScrollToBottom, useAppScrollTopPosition, useAppSiteInfo} from "~/composable";
+import {fetchSiteInfo} from "~/_utils/ApiFetch";
+
+onMounted(async () => {
+    useAppSiteInfo().value = await fetchSiteInfo()
+})
 
 nextTick(() => {
     window.addEventListener('scroll', () => {
-        console.log( window.scrollY > useAppScrollTopPosition().value, window.scrollY,  useAppScrollTopPosition().value)
         useAppScrollToBottom().value = (window.scrollY > useAppScrollTopPosition().value) ? 'toBottom' : 'toTop'
         useAppScrollTopPosition().value = window.scrollY
     })
+
 })
 </script>
 
