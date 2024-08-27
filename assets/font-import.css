@@ -1,21 +1,21 @@
-@font-face { font-family: "OTRima"; font-style: normal; font-weight: 100; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-Thin.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: italic; font-weight: 100; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-ThinItalic.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: normal; font-weight: 200; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-Light.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: italic; font-weight: 200; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-LightItalic.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: normal; font-weight: 300; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-Regular.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: italic; font-weight: 300; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-RegularItalic.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: normal; font-weight: 400; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-Book.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: italic; font-weight: 400; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-BookItalic.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: normal; font-weight: 500; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-Medium.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: italic; font-weight: 500; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-MediumItalic.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: normal; font-weight: 600; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-Bold.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: italic; font-weight: 600; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-BoldItalic.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: normal; font-weight: 700; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-Ultrabold.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: italic; font-weight: 700; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-UltraboldItalic.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: normal; font-weight: 800; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-Black.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: italic; font-weight: 800; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-BlackItalic.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: normal; font-weight: 900; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-Heavy.woff2") format("woff2"); }
-@font-face { font-family: "OTRima"; font-style: italic; font-weight: 900; font-display: swap; src: url("/OTRima/OTRimaUnlicensedTrial-HeavyItalic.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: normal; font-weight: 100; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-Thin.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: italic; font-weight: 100; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-ThinItalic.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: normal; font-weight: 200; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-Light.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: italic; font-weight: 200; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-LightItalic.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: normal; font-weight: 300; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-Regular.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: italic; font-weight: 300; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-RegularItalic.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: normal; font-weight: 400; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-Book.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: italic; font-weight: 400; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-BookItalic.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: normal; font-weight: 500; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-Medium.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: italic; font-weight: 500; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-MediumItalic.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: normal; font-weight: 600; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-Bold.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: italic; font-weight: 600; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-BoldItalic.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: normal; font-weight: 700; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-Ultrabold.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: italic; font-weight: 700; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-UltraboldItalic.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: normal; font-weight: 800; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-Black.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: italic; font-weight: 800; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-BlackItalic.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: normal; font-weight: 900; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-Heavy.woff2") format("woff2"); }
+@font-face { font-family: "OTRima"; font-style: italic; font-weight: 900; font-display: swap; src: url("./OTRima/OTRimaUnlicensedTrial-HeavyItalic.woff2") format("woff2"); }
 
 
 
