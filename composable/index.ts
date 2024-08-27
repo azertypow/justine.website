@@ -16,3 +16,11 @@ export const useAppSiteInfo: () => Ref<null | ApiSiteInfo> = () => {
 export const useAppActiveFilter: () => Ref<null | string> = () => {
     return useState('useAppActiveFilter', () => null)
 }
+
+export const useAppShowIntro: () => Ref<boolean> = () => {
+    return useState('useAppShowIntro', () => true)
+}
+
+export const useAppMapScrollTopInWindow: () => Ref<number> = () => {
+    return useState('useAppMapScrollTopInWindow', () => 1)
+}

@@ -9,7 +9,13 @@
 
 <script setup lang="ts">
 import {nextTick} from "vue";
-import {useAppScrollToBottom, useAppScrollTopPosition, useAppSiteInfo} from "~/composable";
+import {
+    useAppMapScrollTopInWindow,
+    useAppScrollToBottom,
+    useAppScrollTopPosition,
+    useAppShowIntro,
+    useAppSiteInfo
+} from "~/composable";
 import {fetchSiteInfo} from "~/_utils/ApiFetch";
 
 onMounted(async () => {
@@ -20,9 +26,25 @@ nextTick(() => {
     window.addEventListener('scroll', () => {
         useAppScrollToBottom().value = (window.scrollY > useAppScrollTopPosition().value) ? 'toBottom' : 'toTop'
         useAppScrollTopPosition().value = window.scrollY
+        useAppMapScrollTopInWindow().value = mapScrollTopInWindow()
     })
-
+    window.addEventListener('click', () => useAppShowIntro().value = false)
 })
+
+function mapScrollTopInWindow() {
+    if(!useAppShowIntro().value) return 0
+
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight
+
+    if (docHeight === 0) return 1
+
+    const valueToReturn = Math.max(0, Math.min(1, 1 - (useAppScrollTopPosition().value / (docHeight / 2))))
+
+    if(valueToReturn === 0) useAppShowIntro().value = false
+
+    return valueToReturn
+}
+
 </script>
 
 <style lang="scss">
