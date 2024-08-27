@@ -69,6 +69,7 @@ a {
     position: relative;
     z-index: 10;
     font-size: 2rem;
+      color: var(--app-color-beige);
   }
 
   &:before {
@@ -117,10 +118,14 @@ a {
 .v-app-project__category {
   z-index: 100;
   position: absolute;
-  bottom: var(--app-gutter);
-  right: calc( 2 * var(--app-gutter));
+  bottom: calc( var(--app-gutter) / 2 );
+  left: calc( 2 * var(--app-gutter));
   box-sizing: border-box;
-  color: var(--app-color-blue);
+  color: var(--app-color-beige);
+
+    .v-app-project:hover & {
+        transition-delay: 1s !important;
+    }
 }
 
 .v-app-project__project-hover-transition {

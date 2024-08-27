@@ -32,15 +32,19 @@
           </template>
 
           <template v-if="blockContent.type === 'image'">
-            <div class="app-flex__col-24"
+            <div class="app-flex__col-24 v-app-page__image v-app-page__image--full"
                  v-if="blockContent.content.isfullwidth === 'true'"
             >
               <img :src="blockContent.images[0]?.url" :alt="blockContent.images[0]?.alt || 'Image du projet'">
             </div>
-            <div class="app-flex__col-14"
+            <div class="app-flex__col-14 v-app-page__image"
                  v-else
+                 :class="{
+                    'v-app-page__image--horizontal': blockContent.images[0]?.height > blockContent.images[0]?.width
+                 }"
             >
-              <img :src="blockContent.images[0]?.url" alt="image de projet">
+              <img :src="blockContent.images[0]?.url" alt="image de projet"
+              >
             </div>
           </template>
 
@@ -78,6 +82,29 @@ const props = defineProps<{
   background-size: cover;
   margin-bottom: 2rem;
   background-position: 75% center;
+}
+
+.v-app-page__image {
+
+
+    margin-top:     3rem;
+    margin-bottom:  3rem;
+
+    & + & {
+        margin-top: -2rem;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+
+    &.v-app-page__image--horizontal {
+        box-sizing: border-box;
+        padding-left: calc(100%/24*1);
+        padding-right: calc(100%/24*1);
+        width:  calc(100%/24*12);
+    }
 }
 
 .v-app-page__intro {
