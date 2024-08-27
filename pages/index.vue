@@ -43,6 +43,10 @@ onMounted(async () => {
 
 
 <style lang="scss" scoped >
+.v-index {
+  padding-bottom: 1.5rem;
+}
+
 .v-index__project-box {
   &:first-child {
     width: 100%;
