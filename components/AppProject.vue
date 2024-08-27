@@ -123,9 +123,9 @@ a {
   box-sizing: border-box;
   color: var(--app-color-beige);
 
-    .v-app-project:hover & {
-        transition-delay: 1s !important;
-    }
+  .v-app-project:hover & {
+      transition-delay: 1s !important;
+  }
 }
 
 .v-app-project__project-hover-transition {
