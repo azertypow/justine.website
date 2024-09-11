@@ -5,14 +5,16 @@
              }"
     >
       <div class="app-flex app-flex--justify-between app-flex--nowrap app-flex--align-center" style="height: 100%">
-        <div class="v-app-nav__sections app-flex app-flex--align-center app-flex__col-24 app-with_gutter">
-          <div v-for="tag of appSiteInfo?.tags"
-               :class="{
-                'is-active': useAppActiveFilter().value === tag.title
-               }"
-               @click="useAppActiveFilter().value === tag.title ? useAppActiveFilter().value = null : useAppActiveFilter().value = tag.title"
-          >
-            {{tag.title}}
+        <div class="app-flex__col-24 app-with_gutter">
+          <div class="v-app-nav__sections app-flex app-flex--align-center">
+            <div v-for="tag of appSiteInfo?.tags"
+                 :class="{
+                  'is-active': useAppActiveFilter().value === tag.title
+                 }"
+                 @click="useAppActiveFilter().value === tag.title ? useAppActiveFilter().value = null : useAppActiveFilter().value = tag.title"
+            >
+              {{tag.title}}
+            </div>
           </div>
         </div>
         <div class="app-flex app-flex--justify-center app-flex--align-center" style="width: auto">
@@ -102,6 +104,26 @@ const appSiteInfo = useAppSiteInfo()
   .v-app-nav:hover & {
     transform: translate3d(0, 0%, 0);
     opacity: 1;
+  }
+}
+
+.v-app-nav__sections {
+  @media (max-width: 1300px) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: var(--app-color-blue);
+    color: white;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-left: var(--app-gutter);
+    padding-right: var(--app-gutter);
+
+    .is-active {
+      color: inherit;
+    }
   }
 }
 

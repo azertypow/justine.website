@@ -80,3 +80,58 @@
 .app-flex__col-22 { width:  calc(100%/24*22)}
 .app-flex__col-23 { width:  calc(100%/24*23)}
 .app-flex__col-24 { width:  calc(100%/24*24)}
+
+
+
+.app--width-reg--flex__col-1  { @media (max-width: 1200px) {width:   calc(100%/24*1)}}
+.app--width-reg--flex__col-2  { @media (max-width: 1200px) {width:   calc(100%/24*2)}}
+.app--width-reg--flex__col-3  { @media (max-width: 1200px) {width:   calc(100%/24*3)}}
+.app--width-reg--flex__col-4  { @media (max-width: 1200px) {width:   calc(100%/24*4)}}
+.app--width-reg--flex__col-5  { @media (max-width: 1200px) {width:   calc(100%/24*5)}}
+.app--width-reg--flex__col-6  { @media (max-width: 1200px) {width:   calc(100%/24*6)}}
+.app--width-reg--flex__col-7  { @media (max-width: 1200px) {width:   calc(100%/24*7)}}
+.app--width-reg--flex__col-8  { @media (max-width: 1200px) {width:   calc(100%/24*8)}}
+.app--width-reg--flex__col-9  { @media (max-width: 1200px) {width:   calc(100%/24*9)}}
+.app--width-reg--flex__col-10 { @media (max-width: 1200px) {width:  calc(100%/24*10)}}
+.app--width-reg--flex__col-11 { @media (max-width: 1200px) {width:  calc(100%/24*11)}}
+.app--width-reg--flex__col-12 { @media (max-width: 1200px) {width:  calc(100%/24*12)}}
+.app--width-reg--flex__col-13 { @media (max-width: 1200px) {width:  calc(100%/24*13)}}
+.app--width-reg--flex__col-14 { @media (max-width: 1200px) {width:  calc(100%/24*14)}}
+.app--width-reg--flex__col-15 { @media (max-width: 1200px) {width:  calc(100%/24*15)}}
+.app--width-reg--flex__col-16 { @media (max-width: 1200px) {width:  calc(100%/24*16)}}
+.app--width-reg--flex__col-17 { @media (max-width: 1200px) {width:  calc(100%/24*17)}}
+.app--width-reg--flex__col-18 { @media (max-width: 1200px) {width:  calc(100%/24*18)}}
+.app--width-reg--flex__col-19 { @media (max-width: 1200px) {width:  calc(100%/24*19)}}
+.app--width-reg--flex__col-20 { @media (max-width: 1200px) {width:  calc(100%/24*20)}}
+.app--width-reg--flex__col-21 { @media (max-width: 1200px) {width:  calc(100%/24*21)}}
+.app--width-reg--flex__col-22 { @media (max-width: 1200px) {width:  calc(100%/24*22)}}
+.app--width-reg--flex__col-23 { @media (max-width: 1200px) {width:  calc(100%/24*23)}}
+.app--width-reg--flex__col-24 { @media (max-width: 1200px) {width:  calc(100%/24*24)}}
+
+
+.app--width-sm--flex__col-1  { @media (max-width: 1000px) {width:   calc(100%/24*1)}}
+.app--width-sm--flex__col-2  { @media (max-width: 1000px) {width:   calc(100%/24*2)}}
+.app--width-sm--flex__col-3  { @media (max-width: 1000px) {width:   calc(100%/24*3)}}
+.app--width-sm--flex__col-4  { @media (max-width: 1000px) {width:   calc(100%/24*4)}}
+.app--width-sm--flex__col-5  { @media (max-width: 1000px) {width:   calc(100%/24*5)}}
+.app--width-sm--flex__col-6  { @media (max-width: 1000px) {width:   calc(100%/24*6)}}
+.app--width-sm--flex__col-7  { @media (max-width: 1000px) {width:   calc(100%/24*7)}}
+.app--width-sm--flex__col-8  { @media (max-width: 1000px) {width:   calc(100%/24*8)}}
+.app--width-sm--flex__col-9  { @media (max-width: 1000px) {width:   calc(100%/24*9)}}
+.app--width-sm--flex__col-10 { @media (max-width: 1000px) {width:  calc(100%/24*10)}}
+.app--width-sm--flex__col-11 { @media (max-width: 1000px) {width:  calc(100%/24*11)}}
+.app--width-sm--flex__col-12 { @media (max-width: 1000px) {width:  calc(100%/24*12)}}
+.app--width-sm--flex__col-13 { @media (max-width: 1000px) {width:  calc(100%/24*13)}}
+.app--width-sm--flex__col-14 { @media (max-width: 1000px) {width:  calc(100%/24*14)}}
+.app--width-sm--flex__col-15 { @media (max-width: 1000px) {width:  calc(100%/24*15)}}
+.app--width-sm--flex__col-16 { @media (max-width: 1000px) {width:  calc(100%/24*16)}}
+.app--width-sm--flex__col-17 { @media (max-width: 1000px) {width:  calc(100%/24*17)}}
+.app--width-sm--flex__col-18 { @media (max-width: 1000px) {width:  calc(100%/24*18)}}
+.app--width-sm--flex__col-19 { @media (max-width: 1000px) {width:  calc(100%/24*19)}}
+.app--width-sm--flex__col-20 { @media (max-width: 1000px) {width:  calc(100%/24*20)}}
+.app--width-sm--flex__col-21 { @media (max-width: 1000px) {width:  calc(100%/24*21)}}
+.app--width-sm--flex__col-22 { @media (max-width: 1000px) {width:  calc(100%/24*22)}}
+.app--width-sm--flex__col-23 { @media (max-width: 1000px) {width:  calc(100%/24*23)}}
+.app--width-sm--flex__col-24 { @media (max-width: 1000px) {width:  calc(100%/24*24)}}
+
+

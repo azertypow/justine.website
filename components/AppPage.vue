@@ -7,7 +7,7 @@
               }"
       >
         <div class="app-flex app-flex--justify-center">
-          <div class="app-flex__col-18">
+          <div class="app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-22">
             <h2 class="v-app-page__title" >{{content.title}}</h2>
             <h3 class="v-app-page__subtitle">{{content.subtitle}}</h3>
           </div>
@@ -15,7 +15,7 @@
       </header>
       <div class="app-flex app-flex--justify-center">
 
-        <div class="app-flex__col-18"
+        <div class="app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-22"
              v-if="content.introduction"
         >
           <div class="v-app-page__intro" v-html="content.introduction"/>
@@ -24,7 +24,7 @@
         <template v-for="blockContent of content.htmlcontent">
 
           <template v-if="blockContent.type === 'heading'">
-            <div class="app-flex__col-18">
+            <div class="app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-22">
               <h2 v-if="blockContent.content.level === 'h2'">{{ blockContent.content.text }}</h2>
               <h3 v-else-if="blockContent.content.level === 'h3'">{{ blockContent.content.text }}</h3>
               <div v-else>{{ blockContent.content.text }}</div>
@@ -32,12 +32,12 @@
           </template>
 
           <template v-if="blockContent.type === 'image'">
-            <div class="app-flex__col-24 v-app-page__image v-app-page__image--full"
+            <div class="app-flex__col-24 v-app-page__image v-app-page__image--full app--width-sm--flex__col-22"
                  v-if="blockContent.content.isfullwidth === 'true'"
             >
               <img :src="blockContent.images[0]?.url" :alt="blockContent.images[0]?.alt || 'Image du projet'">
             </div>
-            <div class="app-flex__col-14 v-app-page__image"
+            <div class="app-flex__col-14 app--width-reg--flex__col-16 v-app-page__image app--width-sm--flex__col-22"
                  v-else
                  :class="{
                     'v-app-page__image--horizontal': blockContent.images[0]?.height > blockContent.images[0]?.width
@@ -49,7 +49,7 @@
           </template>
 
           <template v-if="blockContent.type === 'text'">
-            <div class="app-flex__col-16"
+            <div class="app-flex__col-16 app--width-reg--flex__col-18 app--width-sm--flex__col-22"
                  v-html="blockContent.content.text"
             ></div>
           </template>
@@ -100,10 +100,12 @@ const props = defineProps<{
 
 
     &.v-app-page__image--horizontal {
+      @media (min-width: 1200px) {
         box-sizing: border-box;
-        padding-left: calc(100%/24*1);
-        padding-right: calc(100%/24*1);
-        width:  calc(100%/24*12);
+        padding-left: calc(100% / 24 * 1);
+        padding-right: calc(100% / 24 * 1);
+        width: calc(100% / 24 * 12);
+      }
     }
 }
 

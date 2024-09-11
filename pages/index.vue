@@ -16,7 +16,7 @@
       <div class="app-flex"
            v-if="siteInfos"
       >
-        <div class="app-flex__col-12 v-index__project-box"
+        <div class="app-flex__col-12 app--width-reg--flex__col-24 v-index__project-box"
                 v-for="project of projectToShow">
           <AppProject
                   :title="project.title"
@@ -57,11 +57,11 @@ const projectToShow: ComputedRef<{
 }[] | undefined> = computed(() => {
     const activeFilter = appActiveFilter.value
 
-    if(activeFilter === null) return siteInfos.value?.projectsInfos
+    if(activeFilter === null) return siteInfos.value?.projectsInfos.toReversed()
 
     return siteInfos.value?.projectsInfos.filter((value) => {
         return value.tags.map(value => value.title).includes(activeFilter)
-    })
+    }).toReversed()
 })
 
 </script>
