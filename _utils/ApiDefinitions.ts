@@ -47,6 +47,7 @@ export type ApiPageContent = {
     introduction?: string
     cover: ApiImage[]
     htmlcontent: (ApiPageContentTitle | ApiPageContentBody | ApiPageContentImage)[]
+    galleryproject: ApiPageContentImage[]
 }
 
 export type ApiPageContentTitle = {

@@ -56,6 +56,21 @@
 
         </template>
       </div>
+
+      <div class="v-app-page__gallery"
+           v-if="content.galleryproject.length > 0"
+      >
+        <div class="v-app-page__gallery__item--scroll-spacing"></div>
+        <div v-for="item of content.galleryproject"
+             class="v-app-page__gallery__item"
+        >
+          <img :src="item.images[0].resize.xxl"
+               alt="image"
+               class="v-app-page__gallery__item__img"
+          />
+        </div>
+        <div class="v-app-page__gallery__item--scroll-spacing"></div>
+      </div>
     </main>
 </template>
 
@@ -131,5 +146,33 @@ img {
 
 .v-app-page__category {
   color: var(--app-color-blue);
+}
+
+.v-app-page__gallery {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: nowrap;
+  overflow: auto;
+  gap: var(--app-gutter);
+  box-sizing: border-box;
+  scroll-snap-type: x mandatory;
+  padding-top: 1rem;
+}
+
+.v-app-page__gallery__item {
+  display: block;
+  scroll-snap-align: center;
+}
+
+.v-app-page__gallery__item__img {
+  display: block;
+  height: 50vh;
+  width: auto;
+}
+
+.v-app-page__gallery__item--scroll-spacing {
+  display: block;
+  padding-left: 50vw;
 }
 </style>
