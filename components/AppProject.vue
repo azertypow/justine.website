@@ -9,7 +9,7 @@
             <h3 class="app-rm-margins v-app-project__title__content"
             >{{title}}</h3>
           </div>
-          <div class="v-app-project__subtitle v-app-project__project-hover-transition"><span v-for="tags of category">{{tags.title}}, </span></div>
+          <div class="v-app-project__subtitle v-app-project__project-hover-transition"><span v-for="(tags, index) of category"><template v-if="index > 0">, </template>{{tags.title}}</span></div>
           <div class="v-app-project__year v-app-project__project-hover-transition">{{new Date(year).getFullYear()}}</div>
         </div>
 
