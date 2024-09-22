@@ -1,5 +1,9 @@
 <template>
-  <div class="v-app">
+  <div class="v-app"
+       :class="{
+          'v-app--intro-is-active': useAppShowIntro().value
+       }"
+  >
     <div class="v-app__nav">
       <AppNav/>
     </div>
@@ -32,6 +36,9 @@ nextTick(() => {
     window.addEventListener('click', () => useAppShowIntro().value = false)
 })
 
+/**
+ * return value between 0 and 1
+ * */
 function mapScrollTopInWindow() {
     if(!useAppShowIntro().value) return 0
 
@@ -39,18 +46,22 @@ function mapScrollTopInWindow() {
 
     if (docHeight === 0) return 1
 
-    const valueToReturn = Math.max(0, Math.min(1, 1 - (useAppScrollTopPosition().value / (docHeight / 2))))
-
-    if(valueToReturn === 0) useAppShowIntro().value = false
-
-    return valueToReturn
+    return Math.max(0, Math.min(1, 1 - (useAppScrollTopPosition().value / (docHeight / 2))))
 }
 
 </script>
 
 <style lang="scss">
 .v-app {
+  box-sizing: border-box;
+  height: 100%;
   padding-top: var(--app-nav-height);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+
+  &.v-app--intro-is-active {
+    overflow: hidden;
+  }
 }
 
 .v-app__nav {

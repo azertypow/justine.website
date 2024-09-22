@@ -9,10 +9,16 @@ html {
   font-size: var(--app-rem-unit);
   font-family: "OTRima", sans-serif;
   background-color: var(--app-color-blue);
+  height: 100%;
 }
 
 body {
   margin: 0;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  height: 100%;
+}
+
+#__nuxt {
+  height: 100%;
 }
