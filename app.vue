@@ -3,6 +3,7 @@
     <div class="v-app__nav">
       <AppNav/>
     </div>
+    <AppIntro/>
     <NuxtPage/>
   </div>
 </template>
