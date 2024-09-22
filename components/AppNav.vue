@@ -114,12 +114,16 @@ const appSiteInfo = useAppSiteInfo()
     left: 0;
     background: var(--app-color-blue);
     color: white;
-    height: 2rem;
+    height: var(--app-footer-height);
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
     padding-left: var(--app-gutter);
     padding-right: var(--app-gutter);
+
+    > * {
+      transform: none;
+    }
 
     .is-active {
       color: inherit;

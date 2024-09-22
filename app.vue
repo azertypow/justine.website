@@ -3,17 +3,21 @@
        :class="{
           'v-app--intro-is-active': useAppShowIntro().value
        }"
+       ref="appElement"
   >
     <div class="v-app__nav">
       <AppNav/>
     </div>
     <AppIntro/>
     <NuxtPage/>
+    <div class="v-app__footer">
+      @2024
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import {nextTick} from "vue";
+import {nextTick, type UnwrapRef} from "vue";
 import {
     useAppMapScrollTopInWindow,
     useAppScrollToBottom,
@@ -22,6 +26,8 @@ import {
     useAppSiteInfo
 } from "~/composable";
 import {fetchSiteInfo} from "~/_utils/ApiFetch";
+
+const appElement: Ref<UnwrapRef<null | HTMLElement>> = ref(null)
 
 onMounted(async () => {
     useAppSiteInfo().value = await fetchSiteInfo()
@@ -49,6 +55,14 @@ function mapScrollTopInWindow() {
     return Math.max(0, Math.min(1, 1 - (useAppScrollTopPosition().value / (docHeight / 2))))
 }
 
+useRouter().afterEach(() => {
+    if(!(appElement.value instanceof HTMLElement)) return
+    appElement.value.scrollTo({
+        top: 0,
+        behavior: 'instant',
+    })
+})
+
 </script>
 
 <style lang="scss">
@@ -70,5 +84,16 @@ function mapScrollTopInWindow() {
   left: 0;
   width: 100%;
   z-index: 100000;
+}
+
+.v-app__footer {
+  height: var(--app-footer-height);
+  display: flex;
+  box-sizing: border-box;
+  padding-right: var(--app-gutter);
+  justify-content: flex-end;
+  align-items: center;
+  color: var(--app-color-beige);
+  font-size: .75rem;
 }
 </style>

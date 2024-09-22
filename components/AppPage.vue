@@ -54,6 +54,14 @@
             ></div>
           </template>
 
+          <template v-if="blockContent.type === 'listOfDetails'">
+            <div class="app-flex__col-16 app--width-reg--flex__col-18 app--width-sm--flex__col-22 v-app-page__list-details">
+              <AppListOfDetails
+                      :data="blockContent"
+              />
+            </div>
+          </template>
+
         </template>
       </div>
 
@@ -158,6 +166,10 @@ img {
   box-sizing: border-box;
   scroll-snap-type: x mandatory;
   padding-top: 1rem;
+}
+
+.v-app-page__list-details {
+  margin-bottom: 1rem;
 }
 
 .v-app-page__gallery__item {
