@@ -79,7 +79,7 @@ function updateIntroStatus() {
   z-index: 1000;
   color: var(--app-color-beige);
   text-align: center;
-  font-size: 2.5vw;
+  font-size: max(1rem, 2.5vw);
   user-select: none;
   cursor: pointer;
   overflow: auto;
@@ -105,6 +105,8 @@ function updateIntroStatus() {
 .v-app-intro__text-wrap__text {
   max-width: 25em;
   width: 100%;
+  box-sizing: border-box;
+  padding: var(--app-gutter);
 }
 
 .v-app-intro__img--null-for-opacity {
