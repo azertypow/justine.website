@@ -44,7 +44,7 @@ const scrollContainer: Ref<UnwrapRef<null | HTMLElement>> = ref(null)
 const scrollerHeightElement: Ref<UnwrapRef<null | HTMLElement>> = ref(null)
 
 const mixBlendMode: string | null | LocationQueryValue[] = useRoute().query.mix_blend_mode
-const opacityFromQuery: string | null | LocationQueryValue[] = useRoute().query.opacity
+const opacityFromQuery: string | null | LocationQueryValue[] = useRoute().query.opacityFromQuery
 
 function updateIntroStatus() {
     if( !(scrollContainer.value instanceof HTMLElement)) return

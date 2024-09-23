@@ -45,11 +45,11 @@ const projectToShow: ComputedRef<{
 }[] | undefined> = computed(() => {
     const activeFilter = appActiveFilter.value
 
-    if(activeFilter === null) return siteInfos.value?.projectsInfos.toReversed()
+    if(activeFilter === null) return siteInfos.value?.projectsInfos.slice().reverse()
 
     return siteInfos.value?.projectsInfos.filter((value) => {
         return value.tags.map(value => value.title).includes(activeFilter)
-    }).toReversed()
+    }).slice().reverse()
 })
 
 </script>
