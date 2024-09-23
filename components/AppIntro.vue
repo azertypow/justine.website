@@ -16,6 +16,17 @@
           <p>Virginie Despente, King Kong Théorie</p>
         </div>
       </div>
+
+      <div class="v-app-intro__img--null-for-opacity">
+        <img class="v-app-intro__img"
+             v-if="mixBlendMode"
+             alt="background"
+             src="/img/Layer-3.jpg"
+             :style="{
+                opacity: opacity,
+             }"
+        />
+      </div>
     </div>
 </template>
 
@@ -24,12 +35,16 @@
 
 
 <script setup lang="ts">
-import {useAppMapScrollTopInWindow, useAppScrollTopPosition, useAppShowIntro} from "~/composable";
+import {useAppShowIntro} from "~/composable";
 import type {UnwrapRef} from "vue";
+import type {LocationQueryValue} from "vue-router";
 
 const opacity = ref(1)
 const scrollContainer: Ref<UnwrapRef<null | HTMLElement>> = ref(null)
 const scrollerHeightElement: Ref<UnwrapRef<null | HTMLElement>> = ref(null)
+
+const mixBlendMode: string | null | LocationQueryValue[] = useRoute().query.mix_blend_mode
+const opacityFromQuery: string | null | LocationQueryValue[] = useRoute().query.opacity
 
 function updateIntroStatus() {
     if( !(scrollContainer.value instanceof HTMLElement)) return
@@ -43,7 +58,6 @@ function updateIntroStatus() {
 
     if(opacity.value === 0) useAppShowIntro().value = false
 }
-
 
 </script>
 
@@ -85,10 +99,29 @@ function updateIntroStatus() {
   top: var(--app-nav-height);
   left: 0;
   pointer-events: none;
+  z-index: 10;
 }
 
 .v-app-intro__text-wrap__text {
   max-width: 25em;
   width: 100%;
+}
+
+.v-app-intro__img--null-for-opacity {
+  --opacity-from-query: v-bind(opacityFromQuery);
+  opacity: calc( var(--opacity-from-query) / 100 );
+}
+
+.v-app-intro__img {
+  --mix-blend-mode-from-query: v-bind(mixBlendMode);
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: var(--mix-blend-mode-from-query);
 }
 </style>
