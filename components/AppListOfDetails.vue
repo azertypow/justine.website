@@ -1,11 +1,12 @@
 <template>
     <section class="v-app-list-of-details"
     >
-      <div class="v-app-list-of-details__detail app-flex"
+      <div class="v-app-list-of-details__detail"
            v-for="detail of data?.content.listofdetails"
       >
-        <div class="v-app-list-of-details__detail__name app-flex__col-12 app--width-sm--flex__col-24"  v-html="detail.name"></div>
-        <div class="v-app-list-of-details__detail__value app-flex__col-12 app--width-sm--flex__col-24" v-html="detail.value"></div>
+        <div class="v-app-list-of-details__detail__name"  v-html="detail.name"></div>
+        <div>&nbsp;-&nbsp;</div>
+        <div class="v-app-list-of-details__detail__value" v-html="detail.value"></div>
       </div>
     </section>
 </template>
@@ -35,8 +36,8 @@ defineProps<{
 }
 
 .v-app-list-of-details__detail {
-  &:hover {
-    color: var(--app-color-blue);
+  > * {
+    display: inline;
   }
 
   @media (max-width: 1200px) {
@@ -47,16 +48,21 @@ defineProps<{
 }
 
 .v-app-list-of-details__detail__name {
-  font-weight: 700;
+  display: inline;
 
-  > :global(*) {
-    margin: 0;
-  }
+}
+:global(.v-app-list-of-details__detail__name > p) {
+  display: inline;
+  margin: 0;
 }
 
 .v-app-list-of-details__detail__value {
-  > :global(*) {
-    margin: 0;
-  }
+  font-weight: 700;
+  display: inline;
+
+}
+:global(.v-app-list-of-details__detail__value > *) {
+  display: inline;
+  margin: 0;
 }
 </style>
