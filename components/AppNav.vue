@@ -4,8 +4,8 @@
                 'v-app-nav--with-gradient': useAppScrollToBottom().value === 'toTop'
              }"
     >
-      <div class="app-flex app-flex--justify-between app-flex--nowrap app-flex--align-center" style="height: 100%">
-        <div class="app-flex__col-24 app-with_gutter">
+      <div class="app-flex app-flex--justify-between app-flex--nowrap app-flex--align-center app-with_gutter" style="height: 100%">
+        <div class="v-app-nav__sections-wrapper app-flex__col-24 app-with_gutter">
           <div class="v-app-nav__sections app-flex app-flex--align-center">
             <div v-for="tag of appSiteInfo?.tags"
                  :class="{
@@ -40,7 +40,7 @@
             </svg>
           </NuxtLink>
         </div>
-        <div class="v-app-nav__pages app-flex app-flex--justify-end app-flex--align-center app-flex__col-24 app-with_gutter">
+        <div class="v-app-nav__pages app-flex app-flex--justify-end app-flex--align-center app-flex__col-24">
           <div>À propos</div>
           <div>Agenda</div>
           <div>Contact</div>
@@ -91,6 +91,10 @@ const appSiteInfo = useAppSiteInfo()
     position: relative;
     transform: translate(0, -50%);
 
+    @media (max-width: 1300px) {
+      transform: none;
+    }
+
     &.is-active {
       transform: translate(0, 50%);
       color: var(--app-color-blue);
@@ -107,27 +111,34 @@ const appSiteInfo = useAppSiteInfo()
   }
 }
 
-.v-app-nav__sections {
+.v-app-nav__sections-wrapper {
   @media (max-width: 1300px) {
     position: fixed;
     bottom: 0;
     left: 0;
     background: var(--app-color-blue);
     color: white;
-    height: var(--app-footer-height);
+    height: auto;
+    box-sizing: border-box;
+    padding: var(--app-gutter);
+    width: 100%;
+  }
+}
+
+.v-app-nav__sections {
+
+  @media (max-width: 1300px) {
     display: flex;
     justify-content: space-between;
-    box-sizing: border-box;
-    padding-left: var(--app-gutter);
-    padding-right: var(--app-gutter);
-
-    > * {
-      transform: none;
-    }
 
     .is-active {
       color: inherit;
     }
+  }
+
+  @media (max-width: 700px) {
+    justify-content: flex-end;
+    gap: 1.5rem 2rem;
   }
 }
 
