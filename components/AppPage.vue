@@ -65,19 +65,25 @@
         </template>
       </div>
 
-      <div class="v-app-page__gallery"
-           v-if="content.galleryproject.length > 0"
-      >
-        <div class="v-app-page__gallery__item--scroll-spacing"></div>
-        <div v-for="item of content.galleryproject"
-             class="v-app-page__gallery__item"
-        >
-          <img :src="item.images[0].resize.xxl"
-               alt="image"
-               class="v-app-page__gallery__item__img"
-          />
+      <div class="app-flex app-flex--justify-center">
+        <div class="app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-24">
+          <div class="v-app-page__gallery-cache">
+            <div class="v-app-page__gallery"
+                 v-if="content.galleryproject.length > 0"
+            >
+              <div class="v-app-page__gallery__item--scroll-spacing"></div>
+              <div v-for="item of content.galleryproject"
+                   class="v-app-page__gallery__item"
+              >
+                <img :src="item.images[0].resize.xxl"
+                     alt="image"
+                     class="v-app-page__gallery__item__img"
+                />
+              </div>
+              <div class="v-app-page__gallery__item--scroll-spacing"></div>
+            </div>
+          </div>
         </div>
-        <div class="v-app-page__gallery__item--scroll-spacing"></div>
       </div>
     </main>
 </template>
@@ -159,13 +165,34 @@ img {
 .v-app-page__gallery {
   display: flex;
   flex-direction: row;
-  width: 100%;
   flex-wrap: nowrap;
   overflow: auto;
   gap: var(--app-gutter);
   box-sizing: border-box;
   scroll-snap-type: x mandatory;
   padding-top: 1rem;
+}
+
+.v-app-page__gallery-cache {
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 1rem;
+    position: absolute;
+    top: 0;
+  }
+  &:before {
+    background: linear-gradient(to right, #fff5e6FF, #fff5e600);
+    left: 0;
+  }
+  &:after {
+    background: linear-gradient(to left, #fff5e6FF, #fff5e600);
+    right: 0;
+  }
 }
 
 .v-app-page__list-details {

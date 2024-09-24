@@ -1,0 +1,20 @@
+/* Styles pour les navigateurs basés sur WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--app-color-beige);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--app-color-blue);
+  border-radius: 20px;
+  border: 3px solid transparent;
+}
+
+/* Styles spécifiques à Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--app-color-blue) var(--app-color-beige);
+}

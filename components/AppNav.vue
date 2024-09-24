@@ -40,10 +40,18 @@
             </svg>
           </NuxtLink>
         </div>
-        <div class="v-app-nav__pages app-flex app-flex--justify-end app-flex--align-center app-flex__col-24">
+        <div class="v-app-nav__pages app-flex app-flex--justify-end app-flex--align-center app-flex__col-24"
+             v-if="openMenu"
+        >
           <div>À propos</div>
           <div>Agenda</div>
           <div>Contact</div>
+        </div>
+        <div class="v-app-nav__menu-toggle"
+             @click="useShowMenu().value = !useShowMenu().value"
+        >
+          <div></div>
+          <div></div>
         </div>
       </div>
     </section>
@@ -54,9 +62,27 @@
 
 
 <script setup lang="ts">
-import {useAppActiveFilter, useAppScrollToBottom, useAppSiteInfo} from "~/composable";
+import {useAppActiveFilter, useAppScrollToBottom, useAppSiteInfo, useShowMenu} from "~/composable";
 
 const appSiteInfo = useAppSiteInfo()
+const showMenu = useShowMenu()
+const windowWidth = ref(window.innerWidth)
+
+const openMenu = computed(() => {
+    return (windowWidth.value < 700) ? showMenu.value : true
+})
+
+const updateWindowWidth = () => {
+    windowWidth.value = window.innerWidth
+}
+
+onMounted(() => {
+    window.addEventListener('resize', updateWindowWidth)
+})
+
+onBeforeUnmount(() => {
+    window.removeEventListener('resize', updateWindowWidth)
+})
 
 </script>
 
@@ -108,6 +134,57 @@ const appSiteInfo = useAppSiteInfo()
   .v-app-nav:hover & {
     transform: translate3d(0, 0%, 0);
     opacity: 1;
+  }
+}
+
+.v-app-nav__pages {
+  @media (max-width: 700px) {
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: var(--app-color-blue);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: var(--app-gutter);
+    color: var(--app-color-beige);
+    font-size: 10vw;
+
+    > * {
+      line-height: 1em;
+    }
+  }
+}
+
+.v-app-nav__menu-toggle {
+  display: none;
+
+  @media (max-width: 700px) {
+    width: 2rem;
+    display: flex;
+    gap: .5rem;
+    flex-direction: column;
+
+    > * {
+      width: 100%;
+      height: 4px;
+      background: var(--app-color-blue);
+      transition: transform 500ms ease-in-out;
+
+      &:first-child {
+        transform: rotate(21deg);
+        transform-origin: top left;
+      }
+
+      &:nth-child(2) {
+        transform: rotate(-21deg);
+        transform-origin: bottom left;
+      }
+    }
   }
 }
 

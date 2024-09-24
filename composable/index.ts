@@ -24,3 +24,5 @@ export const useAppShowIntro: () => Ref<boolean> = () => {
 export const useAppMapScrollTopInWindow: () => Ref<number> = () => {
     return useState('useAppMapScrollTopInWindow', () => 1)
 }
+
+export const useShowMenu: ()=>Ref<boolean> = () => useState('useShowMenu', ()=> false)
