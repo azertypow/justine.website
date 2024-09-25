@@ -185,10 +185,6 @@ img {
     position: absolute;
     top: 0;
   }
-  &:before {
-    background: linear-gradient(to right, #fff5e6FF, #fff5e600);
-    left: 0;
-  }
   &:after {
     background: linear-gradient(to left, #fff5e6FF, #fff5e600);
     right: 0;
@@ -201,7 +197,7 @@ img {
 
 .v-app-page__gallery__item {
   display: block;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
 }
 
 .v-app-page__gallery__item__img {
