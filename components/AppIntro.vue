@@ -12,8 +12,7 @@
 
       <div class="v-app-intro__text-wrap">
         <div class="v-app-intro__text-wrap__text" >
-          <p>Je suis furieuse contre une société qui m'a éduqué dans jamais apprendre a blesser un homme s'il m'écarte les cuisses de force, alors que cette même société m'a inculqué l'idée que c'était un crime dont je ne devais pas me remettre.</p>
-          <p>Virginie Despente, King Kong Théorie</p>
+          <p>Justine Ruchat actrice, autrice et créatrice de spectacles.</p>
         </div>
       </div>
 
@@ -79,7 +78,7 @@ function updateIntroStatus() {
   z-index: 1000;
   color: var(--app-color-beige);
   text-align: center;
-  font-size: max(1rem, 2.5vw);
+  font-size: max(2rem, 5vw);
   user-select: none;
   cursor: pointer;
   overflow: auto;
