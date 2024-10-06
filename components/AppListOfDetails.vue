@@ -57,7 +57,7 @@ defineProps<{
 }
 
 .v-app-list-of-details__detail__value {
-  font-weight: 700;
+  font-weight: 600;
   display: inline;
 
 }
