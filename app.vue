@@ -19,6 +19,7 @@
 <script setup lang="ts">
 import {nextTick, type UnwrapRef} from "vue";
 import {
+    useAppArrayOfCurrentProjectFilter,
     useAppMapScrollTopInWindow,
     useAppScrollToBottom,
     useAppScrollTopPosition,
@@ -56,12 +57,18 @@ function mapScrollTopInWindow() {
 }
 
 useRouter().afterEach(() => {
+    scrollToTop()
+
+    useAppArrayOfCurrentProjectFilter().value = []
+})
+
+function scrollToTop() {
     if(!(appElement.value instanceof HTMLElement)) return
     appElement.value.scrollTo({
         top: 0,
         behavior: 'instant',
     })
-})
+}
 
 </script>
 
