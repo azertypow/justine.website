@@ -2,13 +2,10 @@
     <div class="v-app-intro"
          v-if="useAppShowIntro().value"
          @click="useAppShowIntro().value = false"
-         ref="scrollContainer"
          :style="{
             opacity: opacity,
          }"
-         @scroll="updateIntroStatus"
     >
-      <div class="v-app-intro__scroller-height" ref="scrollerHeightElement"></div>
 
       <div class="v-app-intro__text-wrap">
         <div class="v-app-intro__text-wrap__text" >
@@ -16,9 +13,8 @@
         </div>
       </div>
 
-      <div class="v-app-intro__img--null-for-opacity">
-        <img class="v-app-intro__img"
-             v-if="mixBlendMode"
+      <div class="v-app-intro__img-wrap">
+        <img class="v-app-intro__img-wrap__img"
              alt="background"
              src="/img/Layer-3.jpg"
              :style="{
@@ -26,6 +22,14 @@
              }"
         />
       </div>
+
+      <div class="v-app-intro__scroller-height__wrap"
+           @scroll="updateIntroStatus"
+           ref="scrollContainer"
+      >
+        <div class="v-app-intro__scroller-height" ref="scrollerHeightElement"></div>
+      </div>
+
     </div>
 </template>
 
@@ -42,8 +46,8 @@ const opacity = ref(1)
 const scrollContainer: Ref<UnwrapRef<null | HTMLElement>> = ref(null)
 const scrollerHeightElement: Ref<UnwrapRef<null | HTMLElement>> = ref(null)
 
-const mixBlendMode: string | null | LocationQueryValue[] = useRoute().query.mix_blend_mode
-const opacityFromQuery: string | null | LocationQueryValue[] = useRoute().query.opacityFromQuery
+const mixBlendMode: string | null | LocationQueryValue[] = 'soft-light'
+const opacityFromQuery: string | null | LocationQueryValue[] = '100'
 
 function updateIntroStatus() {
     if( !(scrollContainer.value instanceof HTMLElement)) return
@@ -81,6 +85,14 @@ function updateIntroStatus() {
   font-size: max(2rem, 5vw);
   user-select: none;
   cursor: pointer;
+}
+
+.v-app-intro__scroller-height__wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   overflow: auto;
 }
 
@@ -92,10 +104,10 @@ function updateIntroStatus() {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
+  position: absolute;
   width: 100%;
-  height: calc( 100% - var(--app-nav-height));
-  top: var(--app-nav-height);
+  height: 100%;
+  top: 0;
   left: 0;
   pointer-events: none;
   z-index: 10;
@@ -108,17 +120,20 @@ function updateIntroStatus() {
   padding: var(--app-gutter);
 }
 
-.v-app-intro__img--null-for-opacity {
+.v-app-intro__img-wrap {
   --opacity-from-query: v-bind(opacityFromQuery);
   opacity: calc( var(--opacity-from-query) / 100 );
-}
-
-.v-app-intro__img {
-  --mix-blend-mode-from-query: v-bind(mixBlendMode);
-  display: block;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.v-app-intro__img-wrap__img {
+  --mix-blend-mode-from-query: v-bind(mixBlendMode);
+  display: block;
+  position: relative;
   width: 100%;
   height: 100%;
   z-index: 0;
