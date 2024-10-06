@@ -23,12 +23,15 @@
 import type {Ref, UnwrapRef} from "vue";
 import type {ApiPageContent} from "~/_utils/ApiDefinitions";
 import {fetchProjectBySlug} from "~/_utils/ApiFetch";
+import {useAppArrayOfCurrentProjectFilter} from "~/composable";
 
 const project: Ref<UnwrapRef<null | ApiPageContent>> = ref(null)
 const route = useRoute()
 
 onMounted(() => {
-    loadPageContent()
+    loadPageContent().then(() => {
+        useAppArrayOfCurrentProjectFilter().value = project.value?.tags.map(value => value.title) || []
+    })
 })
 
 async function loadPageContent() {

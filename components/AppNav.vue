@@ -9,7 +9,7 @@
           <div class="v-app-nav__sections app-flex app-flex--align-center">
             <div v-for="tag of appSiteInfo?.tags"
                  :class="{
-                  'is-active': useAppActiveFilter().value === tag.title
+                  'is-active': arrayOfFilterToShowActivated.includes(tag.title)
                  }"
                  @click="useAppActiveFilter().value === tag.title ? useAppActiveFilter().value = null : useAppActiveFilter().value = tag.title"
             >
@@ -62,14 +62,30 @@
 
 
 <script setup lang="ts">
-import {useAppActiveFilter, useAppScrollToBottom, useAppSiteInfo, useShowMenu} from "~/composable";
+import {
+    useAppActiveFilter,
+    useAppArrayOfCurrentProjectFilter,
+    useAppScrollToBottom,
+    useAppSiteInfo,
+    useShowMenu
+} from "~/composable";
 
 const appSiteInfo = useAppSiteInfo()
 const showMenu = useShowMenu()
 const windowWidth = ref(window.innerWidth)
+const router = useRouter()
 
 const openMenu = computed(() => {
     return (windowWidth.value < 700) ? showMenu.value : true
+})
+
+const activatedFilter = useAppActiveFilter()
+const currentProjectTags = useAppArrayOfCurrentProjectFilter()
+
+const arrayOfFilterToShowActivated: ComputedRef<string[]> = computed(() => {
+    if(router.currentRoute.value.name === 'index') return activatedFilter.value ? [activatedFilter.value] : []
+    if(router.currentRoute.value.name === 'projects-slug') return currentProjectTags.value
+    return []
 })
 
 const updateWindowWidth = () => {
