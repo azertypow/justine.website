@@ -58,10 +58,5 @@ const projectToShow: ComputedRef<{
 
 
 
-<style lang="scss" scoped >
-.v-index__project-box {
-  &:first-child {
-    width: 100%;
-  }
-}
+<style lang="scss" >
 </style>
