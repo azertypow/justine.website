@@ -75,11 +75,11 @@ function updateIntroStatus() {
   padding-left: var(--app-gutter);
   padding-right: var(--app-gutter);
   width: 100%;
-  height: calc( 100% - var(--app-nav-height));
+  height: 100%;
   position: fixed;
-  top: var(--app-nav-height);
+  top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 100000;
   color: var(--app-color-beige);
   text-align: center;
   font-size: max(2rem, 5vw);
