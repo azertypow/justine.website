@@ -46,7 +46,7 @@ export type ApiPageContent = {
     tags: ApiTags[]
     introduction?: string
     cover: ApiImage[]
-    htmlcontent: (ApiPageContentTitle | ApiPageContentBody | ApiPageContentImage | ApiPageContentListOfDetails | ApiPageContentGallery)[]
+    htmlcontent: (ApiPageContentTitle | ApiPageContentBody | ApiPageContentImage | ApiPageContentListOfDetails | ApiPageContentGallery | ApiPageContentQuote)[]
     galleryproject: ApiPageContentImage[]
 }
 
@@ -100,4 +100,14 @@ export type ApiPageContentGallery = {
     "id": string,
     "isHidden": false,
     "images": ApiImage[]
+}
+
+export type ApiPageContentQuote = {
+    type: "quote",
+    //---
+    "content": {
+        "text": string,
+    },
+    "id": string,
+    "isHidden": false,
 }

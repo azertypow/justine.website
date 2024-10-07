@@ -76,6 +76,12 @@
             ></div>
           </template>
 
+          <template v-if="blockContent.type === 'quote'">
+            <div class="v-app-page__block__quote app-flex__col-16 app--width-reg--flex__col-18 app--width-sm--flex__col-22"
+                 v-html="blockContent.content.text"
+            ></div>
+          </template>
+
           <template v-if="blockContent.type === 'listOfDetails'">
             <div class="app-flex__col-16 app--width-reg--flex__col-18 app--width-sm--flex__col-22 v-app-page__list-details">
               <AppListOfDetails
@@ -182,6 +188,14 @@ img {
 
 .v-app-page__category {
   color: var(--app-color-blue);
+}
+
+.v-app-page__block__quote {
+  color: var(--app-color-blue);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.325rem;
+  line-height: 1.25em;
 }
 
 .v-app-page__gallery {
