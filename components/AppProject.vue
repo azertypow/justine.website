@@ -143,11 +143,6 @@ a {
   aspect-ratio: 2/1;
   object-fit: cover;
   position: relative;
-
-  @media(max-width: 700px) {
-    aspect-ratio: 1/1;
-  }
-
   transition: transform 1s ease-in-out;
   opacity: 1;
   transform: scale(1);
@@ -156,6 +151,10 @@ a {
     transition-duration: 2.5s;
     transition-timing-function: linear;
     transform: scale(1.05);
+  }
+
+  @media(max-width: 700px) {
+    aspect-ratio: 1/1;
   }
 }
 </style>
