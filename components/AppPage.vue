@@ -12,6 +12,7 @@
             <h3 class="v-app-page__subtitle">{{content.subtitle}}</h3>
           </div>
         </div>
+        <div class="v-app-page__header__credit" v-if="content.cover[0].photoCredit">{{content.cover[0].photoCredit}}</div>
       </header>
       <div class="app-flex app-flex--justify-center">
 
@@ -32,19 +33,21 @@
           </template>
 
           <template v-if="blockContent.type === 'image'">
-            <div class="app-flex__col-24 v-app-page__image v-app-page__image--full app--width-sm--flex__col-22"
+            <div class="v-app-page__block__image v-app-page__block__image--full app-flex__col-24 app--width-sm--flex__col-22"
                  v-if="blockContent.content.isfullwidth === 'true'"
             >
               <img :src="blockContent.images[0]?.url" :alt="blockContent.images[0]?.alt || 'Image du projet'">
             </div>
-            <div class="app-flex__col-14 app--width-reg--flex__col-16 v-app-page__image app--width-sm--flex__col-22"
+            <div class="v-app-page__block__image app-flex__col-14 app--width-reg--flex__col-16 app--width-sm--flex__col-22"
                  v-else
                  :class="{
-                    'v-app-page__image--horizontal': blockContent.images[0]?.height > blockContent.images[0]?.width
+                    'v-app-page__block__image--horizontal': blockContent.images[0]?.height > blockContent.images[0]?.width
                  }"
             >
-              <img :src="blockContent.images[0]?.url" alt="image de projet"
-              >
+              <img :src="blockContent.images[0]?.url" alt="image de projet">
+              <div class="v-app-page__block__image__credits"
+                   v-if="blockContent.images[0]?.photoCredit"
+              >{{blockContent.images[0].photoCredit}}</div>
             </div>
           </template>
 
@@ -139,13 +142,28 @@ const props = defineProps<{
   background-size: cover;
   margin-bottom: 2rem;
   background-position: 75% center;
+  position: relative;
 }
 
-.v-app-page__image {
+.v-app-page__header__credit {
+  position: absolute;
+  bottom: 0;
+  background: var(--app-color-beige);
+  font-size: .75rem;
+  padding: .5rem;
+}
+.v-app-page__block__image__credits {
+  position: absolute;
+  bottom: 0;
+  background: var(--app-color-beige);
+  font-size: .75rem;
+  padding: .5rem;
+}
 
-
+.v-app-page__block__image {
     margin-top:     3rem;
     margin-bottom:  3rem;
+    position: relative;
 
     & + & {
         margin-top: -2rem;
@@ -156,7 +174,7 @@ const props = defineProps<{
     }
 
 
-    &.v-app-page__image--horizontal {
+    &.v-app-page__block__image--horizontal {
       @media (min-width: 1200px) {
         box-sizing: border-box;
         padding-left: calc(100% / 24 * 1);
