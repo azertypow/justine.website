@@ -52,6 +52,7 @@
             <div class="app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-24">
               <div class="v-app-page__gallery-cache">
                 <div class="v-app-page__gallery"
+                     style="padding-top: 0"
                      v-if="blockContent.images.length > 0"
                 >
                   <div class="v-app-page__gallery__item--scroll-spacing"></div>
