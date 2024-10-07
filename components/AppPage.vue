@@ -52,7 +52,7 @@
           </template>
 
           <template v-if="blockContent.type === 'imageGallery'">
-            <div class="app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-24">
+            <div class="v-app-page__block__gallery app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-24">
               <div class="v-app-page__gallery-cache">
                 <div class="v-app-page__gallery"
                      style="padding-top: 0"
@@ -66,6 +66,7 @@
                          alt="image"
                          class="v-app-page__gallery__item__img"
                     />
+                    <div v-if="item.photoCredit" class="v-app-page__gallery__item__credit">{{item.photoCredit}}</div>
                   </div>
                   <div class="v-app-page__gallery__item--scroll-spacing"></div>
                 </div>
@@ -110,6 +111,7 @@
                      alt="image"
                      class="v-app-page__gallery__item__img"
                 />
+                <div v-if="item.images[0].photoCredit" class="v-app-page__gallery__item__credit">{{item.images[0].photoCredit}}</div>
               </div>
               <div class="v-app-page__gallery__item--scroll-spacing"></div>
             </div>
@@ -252,6 +254,15 @@ img {
 .v-app-page__gallery__item {
   display: block;
   scroll-snap-align: start;
+  position: relative;
+}
+
+.v-app-page__gallery__item__credit {
+  position: absolute;
+  bottom: 0;
+  background: var(--app-color-beige);
+  font-size: .75rem;
+  padding: .5rem;
 }
 
 .v-app-page__gallery__item__img {
