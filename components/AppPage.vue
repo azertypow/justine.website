@@ -48,6 +48,27 @@
             </div>
           </template>
 
+          <template v-if="blockContent.type === 'imageGallery'">
+            <div class="app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-24">
+              <div class="v-app-page__gallery-cache">
+                <div class="v-app-page__gallery"
+                     v-if="blockContent.images.length > 0"
+                >
+                  <div class="v-app-page__gallery__item--scroll-spacing"></div>
+                  <div v-for="item of blockContent.images"
+                       class="v-app-page__gallery__item"
+                  >
+                    <img :src="item.resize.xxl"
+                         alt="image"
+                         class="v-app-page__gallery__item__img"
+                    />
+                  </div>
+                  <div class="v-app-page__gallery__item--scroll-spacing"></div>
+                </div>
+              </div>
+            </div>
+          </template>
+
           <template v-if="blockContent.type === 'text'">
             <div class="app-flex__col-16 app--width-reg--flex__col-18 app--width-sm--flex__col-22"
                  v-html="blockContent.content.text"

@@ -46,7 +46,7 @@ export type ApiPageContent = {
     tags: ApiTags[]
     introduction?: string
     cover: ApiImage[]
-    htmlcontent: (ApiPageContentTitle | ApiPageContentBody | ApiPageContentImage | ApiPageContentListOfDetails)[]
+    htmlcontent: (ApiPageContentTitle | ApiPageContentBody | ApiPageContentImage | ApiPageContentListOfDetails | ApiPageContentGallery)[]
     galleryproject: ApiPageContentImage[]
 }
 
@@ -85,6 +85,17 @@ export type ApiPageContentImage = {
     "content": {
         "image": string[],
         "isfullwidth": "false" | "true"
+    },
+    "id": string,
+    "isHidden": false,
+    "images": ApiImage[]
+}
+
+export type ApiPageContentGallery = {
+    type: "imageGallery",
+    //---
+    "content": {
+        "image": string[],
     },
     "id": string,
     "isHidden": false,
