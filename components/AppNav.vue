@@ -7,7 +7,7 @@
       <div class="app-flex app-flex--justify-between app-flex--nowrap app-flex--align-center app-with_gutter" style="height: 100%">
         <div class="v-app-nav__sections-wrapper app-flex__col-24 app-with_gutter">
           <div class="v-app-nav__sections app-flex app-flex--align-center">
-            <div v-for="tag of appSiteInfo?.tags"
+            <div v-for="tag of appSiteInfo?.tags.filter(value => value.title !== 'Film')"
                  :class="{
                   'is-active': arrayOfFilterToShowActivated.includes(tag.title)
                  }"
