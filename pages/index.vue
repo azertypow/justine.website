@@ -13,6 +13,7 @@
                   :year="project.date"
                   :slug="project.slug"
                   :subtitle="project.subtitle"
+                  :focus="project.cover[0]?.focus"
           />
         </div>
       </div>

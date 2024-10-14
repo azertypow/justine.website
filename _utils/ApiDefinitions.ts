@@ -16,6 +16,8 @@ export type ApiSiteInfo = {
 }
 
 export type ApiImage = {
+    /** example = "18.1% 79.9%"  */
+    "focus": null | string //
     "caption": string | null,
     "alt": string | null,
     "link": string | null,

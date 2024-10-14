@@ -15,6 +15,9 @@
 
         <img class="v-app-project__img app-display-block"
              :src="src"
+             :style="{
+                 objectPosition: focus
+             }"
              alt="image de couverture pour le projet"/>
 
         <div class="v-app-project__category v-app-project__project-hover-transition"
@@ -35,6 +38,7 @@ const props = defineProps<{
     category: ApiTags[]
     slug: string
     subtitle: string
+    focus: string | null
 }>()
 </script>
 

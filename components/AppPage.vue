@@ -4,6 +4,7 @@
       <header class="v-app-page__header"
               :style="{
                 backgroundImage: `url(${content.cover[0].resize.xxl})`,
+                backgroundPosition: content.cover[0].focus,
               }"
       >
         <div class="app-flex app-flex--justify-center">
