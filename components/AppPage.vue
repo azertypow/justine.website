@@ -60,6 +60,35 @@
             </div>
           </template>
 
+          <template v-if="blockContent.type === 'video'">
+            <div class="v-app-page__block__image v-app-page__block__image--full app-flex__col-24 app--width-sm--flex__col-22"
+                 v-if="blockContent.content.isfullwidth === 'true'"
+            >
+              <iframe width="560" height="315"
+                      :src="`https://www.youtube.com/embed/${youtubeGetVideoIDFromURL(blockContent.content.url)}` || ''"
+                      title="YouTube video player" frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <div class="v-app-page__block__image__credits"
+                   v-if="blockContent.content.credit"
+              >{{blockContent.content.credit}}</div>
+            </div>
+            <div class="v-app-page__block__image app-flex__col-14 app--width-reg--flex__col-16 app--width-sm--flex__col-22"
+                 v-else
+            >
+              <iframe width="560" height="315"
+                      :src="`https://www.youtube.com/embed/${youtubeGetVideoIDFromURL(blockContent.content.url)}` || ''"
+                      title="YouTube video player" frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <div class="v-app-page__block__image__credits"
+                   v-if="blockContent.content.credit"
+              >{{blockContent.content.credit}}</div>
+            </div>
+          </template>
+
+
+
           <template v-if="blockContent.type === 'imageGallery'">
             <div class="v-app-page__block__gallery app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-24">
               <div class="v-app-page__gallery-cache">
@@ -137,6 +166,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
 import type {ApiPageContent} from "~/_utils/ApiDefinitions";
+import {youtubeGetVideoIDFromURL} from "~/_utils/YouTube";
 
 const props = defineProps<{
     content: ApiPageContent
@@ -280,5 +310,13 @@ img {
 .v-app-page__gallery__item--scroll-spacing {
   display: block;
   padding-left: 50vw;
+}
+
+
+iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
 }
 </style>
