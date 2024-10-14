@@ -41,6 +41,10 @@
                  v-if="blockContent.content.isfullwidth === 'true'"
             >
               <img :src="blockContent.images[0]?.url" :alt="blockContent.images[0]?.alt || 'Image du projet'">
+                <div class="v-app-page__block__image__credits"
+                     v-if="blockContent.images[0]?.photoCredit"
+                     :style="{color: (blockContent.images[0].textColor && blockContent.images[0].textColor.value === 'dark' )? 'black' : 'var(--app-color-beige)'}"
+                >{{blockContent.images[0].photoCredit}}</div>
             </div>
             <div class="v-app-page__block__image app-flex__col-14 app--width-reg--flex__col-16 app--width-sm--flex__col-22"
                  v-else
