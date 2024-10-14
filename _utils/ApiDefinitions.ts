@@ -1,10 +1,5 @@
 export type ApiSiteInfo = {
-    'tags': {
-        "title": string,
-        "uuid": string,
-        "uri": string,
-        "slug": string
-    }[]
+    'tags': ApiTag[]
     projectsInfos: {
         cover: ApiImage[]
         title: string
@@ -15,6 +10,12 @@ export type ApiSiteInfo = {
     }[]
 }
 
+export type ApiTag = {
+    "title": string,
+    "uuid": string,
+    "uri": string,
+    "slug": string
+}
 export type ApiImage = {
     /** example = "18.1% 79.9%"  */
     "focus": null | string //

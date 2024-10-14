@@ -11,7 +11,7 @@
                  :class="{
                   'is-active': arrayOfFilterToShowActivated.includes(tag.title)
                  }"
-                 @click="useAppActiveFilter().value === tag.title ? useAppActiveFilter().value = null : useAppActiveFilter().value = tag.title"
+                 @click="tagNavigation(tag)"
             >
               {{tag.title}}
             </div>
@@ -72,6 +72,7 @@ import {
     useAppSiteInfo,
     useShowMenu
 } from "~/composable";
+import type {ApiTag} from "~/_utils/ApiDefinitions";
 
 const appSiteInfo = useAppSiteInfo()
 const showMenu = useShowMenu()
@@ -93,6 +94,13 @@ const arrayOfFilterToShowActivated: ComputedRef<string[]> = computed(() => {
 
 const updateWindowWidth = () => {
     windowWidth.value = window.innerWidth
+}
+
+function tagNavigation(tag: ApiTag) {
+    if(useRouter().currentRoute.value.path === '/')
+        useAppActiveFilter().value === tag.title ? useAppActiveFilter().value = null : useAppActiveFilter().value = tag.title
+    else
+        useRouter().push({path: '/'}).then(() => useAppActiveFilter().value = tag.title)
 }
 
 onMounted(() => {
