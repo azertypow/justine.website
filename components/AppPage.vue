@@ -16,7 +16,7 @@
         <div class="v-app-page__header__credit"
              v-if="content.cover[0].photoCredit"
              :style="{color: (content.cover[0].textColor && content.cover[0].textColor.value === 'dark' )? 'black' : 'var(--app-color-beige)'}"
-        >{{content.cover[0].textColor}}</div>
+        >{{content.cover[0].photoCredit}}</div>
       </header>
       <div class="app-flex app-flex--justify-center">
 
@@ -155,7 +155,6 @@ const props = defineProps<{
 .v-app-page__header__credit {
   position: absolute;
   bottom: 0;
-  background: var(--app-color-beige);
   font-size: .75rem;
   padding: .5rem;
 }
