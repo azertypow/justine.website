@@ -215,8 +215,6 @@ img {
   color: var(--app-color-blue);
   margin-top: 1rem;
   margin-bottom: 1rem;
-  font-size: 1.325rem;
-  line-height: 1.25em;
 }
 
 .v-app-page__gallery {
