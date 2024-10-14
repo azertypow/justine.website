@@ -4,7 +4,7 @@
       <header class="v-app-page__header"
               :style="{
                 backgroundImage: `url(${content.cover[0].resize.xxl})`,
-                backgroundPosition: content.cover[0].focus,
+                backgroundPosition: content.cover[0].focus || '50% 50%',
               }"
       >
         <div class="app-flex app-flex--justify-center">
@@ -15,7 +15,7 @@
         </div>
         <div class="v-app-page__header__credit"
              v-if="content.cover[0].photoCredit"
-             :style="{color: content.cover[0].textColor || ''}"
+             :style="{color: (content.cover[0].textColor && content.cover[0].textColor.value === 'dark' )? 'black' : 'var(--app-color-beige)'}"
         >{{content.cover[0].textColor}}</div>
       </header>
       <div class="app-flex app-flex--justify-center">
