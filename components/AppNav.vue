@@ -221,7 +221,7 @@ onBeforeUnmount(() => {
     bottom: 0;
     left: 0;
     background: var(--app-color-blue);
-    color: white;
+    color: var(--app-color-beige);
     height: auto;
     box-sizing: border-box;
     padding: var(--app-gutter);

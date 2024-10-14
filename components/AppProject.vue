@@ -50,7 +50,7 @@ const props = defineProps<{
 .v-app-project {
   overflow: hidden;
   background: var(--app-color-blue);
-  color: white;
+  color: var(--app-color-beige);
   position: relative;
   user-select: none;
   cursor: pointer;

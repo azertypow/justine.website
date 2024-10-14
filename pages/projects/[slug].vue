@@ -53,7 +53,7 @@ async function loadPageContent() {
 
 .v-projects-slug__link-button {
   background-color: var(--app-color-blue);
-  color: white;
+  color: var(--app-color-beige);
   font-weight: 600;
   padding: var(--app-gutter);
   border-radius: 10rem;
