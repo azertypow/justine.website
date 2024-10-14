@@ -22,6 +22,7 @@ export type ApiImage = {
     "alt": string | null,
     "link": string | null,
     "photoCredit": string | null,
+    "textColor": {value: 'dark' | 'light'} | null
     "url": string,
     "mediaUrl": string,
     "width": number,

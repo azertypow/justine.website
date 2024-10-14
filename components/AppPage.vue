@@ -13,7 +13,10 @@
             <h3 class="v-app-page__subtitle">{{content.subtitle}}</h3>
           </div>
         </div>
-        <div class="v-app-page__header__credit" v-if="content.cover[0].photoCredit">{{content.cover[0].photoCredit}}</div>
+        <div class="v-app-page__header__credit"
+             v-if="content.cover[0].photoCredit"
+             :style="{color: content.cover[0].textColor || ''}"
+        >{{content.cover[0].textColor}}</div>
       </header>
       <div class="app-flex app-flex--justify-center">
 
@@ -48,6 +51,7 @@
               <img :src="blockContent.images[0]?.url" alt="image de projet">
               <div class="v-app-page__block__image__credits"
                    v-if="blockContent.images[0]?.photoCredit"
+                   :style="{color: (blockContent.images[0].textColor && blockContent.images[0].textColor.value === 'dark' )? 'black' : 'var(--app-color-beige)'}"
               >{{blockContent.images[0].photoCredit}}</div>
             </div>
           </template>
@@ -158,7 +162,7 @@ const props = defineProps<{
 .v-app-page__block__image__credits {
   position: absolute;
   bottom: 0;
-  background: var(--app-color-beige);
+  color: var(--app-color-beige);
   font-size: .75rem;
   padding: .5rem;
 }
