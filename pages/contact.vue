@@ -6,12 +6,12 @@
       >
         <div class="app-flex app-flex--justify-center">
           <div class="app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-22">
-            <h2 class="v--slug__page__title" >Contacte</h2>
+            <h2 class="v--slug__page__title" >Contact</h2>
           </div>
         </div>
         <div class="app-flex app-flex--justify-center">
 
-          <div class="app-flex__col-16 app--width-reg--flex__col-18 app--width-sm--flex__col-22 v--slug__page__intro"
+          <div class="app-flex__col-16 app--width-reg--flex__col-18 app--width-sm--flex__col-22"
                v-if="contactContent"
           >
             <div v-html="contactContent.data.textcontact"/>
@@ -77,9 +77,6 @@ onMounted(async () => {
 
 .v--slug__page {
   min-height: calc( 100vh - var(--app-footer-height) - var(--app-nav-height));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   box-sizing: border-box;
   padding-bottom: 2rem;
 }
