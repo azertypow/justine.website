@@ -5,7 +5,7 @@
            v-for="detail of data?.content.listofdetails"
       >
         <div class="v-app-list-of-details__detail__name"  v-html="detail.name"></div>
-        <div>&nbsp;-&nbsp;</div>
+        <div>&nbsp;—&nbsp;</div>
         <div class="v-app-list-of-details__detail__value" v-html="detail.value"></div>
       </div>
     </section>
