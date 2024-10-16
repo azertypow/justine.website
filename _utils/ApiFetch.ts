@@ -1,4 +1,4 @@
-import type {ApiPageContent, ApiSiteInfo} from "~/_utils/ApiDefinitions";
+import type {ApiPageContact, ApiPageContent, ApiSiteInfo} from "~/_utils/ApiDefinitions";
 
 // const apiBaseUrl = 'http://localhost:8000'
 const apiBaseUrl = 'https://justine.sdrvl.ch'
@@ -14,7 +14,10 @@ export async function fetchProjectBySlug(slug: string): Promise<ApiPageContent> 
     return response.json()
 }
 
-
+export async function fetchContact(): Promise<ApiPageContact> {
+    const response = await fetch(`${apiBaseUrl}/contact`)
+    return response.json()
+}
 
 
 

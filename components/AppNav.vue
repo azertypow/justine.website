@@ -46,9 +46,9 @@
         <div class="v-app-nav__pages app-flex app-flex--justify-end app-flex--align-center app-flex__col-24"
              v-if="openMenu"
         >
-          <div>À propos</div>
-          <div>Agenda</div>
-          <div>Contact</div>
+          <nuxt-link href="/a-propos">À propos</nuxt-link>
+          <nuxt-link href="/agenda">Agenda</nuxt-link>
+          <nuxt-link href="/contact">Contact</nuxt-link>
         </div>
         <div class="v-app-nav__menu-toggle"
              @click="useShowMenu().value = !useShowMenu().value"

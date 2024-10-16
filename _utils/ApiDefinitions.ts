@@ -126,3 +126,12 @@ export type ApiPageContentQuote = {
     "id": string,
     "isHidden": false,
 }
+
+export type ApiPageContact = {
+    error: null | string,
+    data: {
+        textcontact: string,
+        mapImage: null | ApiImage,
+        mapLien: string
+    }
+}
