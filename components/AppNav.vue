@@ -47,7 +47,6 @@
              v-if="openMenu"
         >
           <nuxt-link href="/a-propos">À propos</nuxt-link>
-          <nuxt-link href="/agenda">Agenda</nuxt-link>
           <nuxt-link href="/contact">Contact</nuxt-link>
         </div>
         <div class="v-app-nav__menu-toggle"

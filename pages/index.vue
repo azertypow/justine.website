@@ -19,7 +19,7 @@
         <div class="app-flex__col-12 app--width-reg--flex__col-24 v-index__project-box app-flex app-flex--justify-center"
              style="padding-top: 2rem; padding-bottom: 2rem"
         >
-          <AppButtonCircle :variant="true" href="/agenda" text="Agenda"/>
+          <AppButtonCircle :variant="true" href="/a-propos" text="À propos"/>
         </div>
       </div>
     </section>
