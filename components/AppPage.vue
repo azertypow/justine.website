@@ -316,7 +316,7 @@ img {
 
 .v-app-page__gallery__item--scroll-spacing {
   display: block;
-  padding-left: 50vw;
+  padding-left: 0;
 }
 
 
