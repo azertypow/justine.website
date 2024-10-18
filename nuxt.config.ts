@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
   app: {
-    baseURL: '/justine.website/',
+    baseURL: '/',
   },
   css: [
       '@/assets/_main.scss'
