@@ -153,6 +153,11 @@ onMounted(async () => {
   color: var(--app-color-blue);
 }
 
+img {
+  display: block;
+  width: 100%;
+}
+
 .v-a-propos__page {
   min-height: calc( 100vh - var(--app-footer-height) - var(--app-nav-height));
   box-sizing: border-box;
