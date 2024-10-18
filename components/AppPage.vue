@@ -304,7 +304,8 @@ img {
   bottom: 0;
   background: var(--app-color-beige);
   font-size: .75rem;
-  padding: .5rem;
+  padding: 0 .5rem 0 .5rem;
+  width: 100%;
 }
 
 .v-app-page__gallery__item__img {
