@@ -6,7 +6,7 @@
       >
         <div class="app-flex app-flex--justify-center">
           <div class="app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-22">
-            <h2 class="v--slug__page__title" >{{aProposContent?.data.aboutTitle || 'Contact'}}</h2>
+            <h2 class="v-a-propos__page__title" >{{aProposContent?.data.aboutTitle || 'Contact'}}</h2>
           </div>
         </div>
         <div class="app-flex app-flex--justify-center">
@@ -147,6 +147,10 @@ onMounted(async () => {
 <style lang="scss" scoped >
 .v-a-propos {
   background: var(--app-color-beige);
+}
+
+.v-a-propos__page__title {
+  color: var(--app-color-blue);
 }
 
 .v-a-propos__page {
