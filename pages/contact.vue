@@ -6,7 +6,7 @@
       >
         <div class="app-flex app-flex--justify-center">
           <div class="app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-22">
-            <h2 class="v--slug__page__title" >Contact</h2>
+            <h2 class="v--slug__page__title" >{{contactContent?.data.contactTitle || 'Contact'}}</h2>
           </div>
         </div>
         <div class="app-flex app-flex--justify-center">
@@ -52,7 +52,6 @@
 
 <script setup lang="ts">
 import {fetchContact} from "~/_utils/ApiFetch";
-import {youtubeGetVideoIDFromURL} from "~/_utils/YouTube";
 import type {UnwrapRef} from "vue";
 import type {ApiPageContact} from "~/_utils/ApiDefinitions";
 

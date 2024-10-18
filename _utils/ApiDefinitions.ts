@@ -44,13 +44,15 @@ export type ApiTags = {
     "uri":      string
 }
 
+export type ApiHTMLBlock = ApiPageContentTitle | ApiPageContentBody | ApiPageContentImage | ApiPageContentListOfDetails | ApiPageContentGallery | ApiPageContentQuote | ApiPageContentVideo
+
 export type ApiPageContent = {
     title: string
     subtitle: string
     tags: ApiTags[]
     introduction?: string
     cover: ApiImage[]
-    htmlcontent: (ApiPageContentTitle | ApiPageContentBody | ApiPageContentImage | ApiPageContentListOfDetails | ApiPageContentGallery | ApiPageContentQuote | ApiPageContentVideo)[]
+    htmlcontent: ApiHTMLBlock[]
     galleryproject: ApiPageContentImage[]
 }
 
@@ -130,8 +132,17 @@ export type ApiPageContentQuote = {
 export type ApiPageContact = {
     error: null | string,
     data: {
+        contactTitle: string | null
         textcontact: string,
         mapImage: null | ApiImage,
         mapLien: string
+    }
+}
+
+export type ApiPageAbout = {
+    error: null | string,
+    data: {
+        aboutTitle: string,
+        textabout: ApiHTMLBlock[]
     }
 }
