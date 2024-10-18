@@ -69,7 +69,7 @@
                       title="YouTube video player" frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              <div class="v-app-page__block__image__credits"
+              <div class="v-app-page__block__video__credits"
                    v-if="blockContent.content.credit"
               >{{blockContent.content.credit}}</div>
             </div>
@@ -81,7 +81,7 @@
                       title="YouTube video player" frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              <div class="v-app-page__block__image__credits"
+              <div class="v-app-page__block__video__credits"
                    v-if="blockContent.content.credit"
               >{{blockContent.content.credit}}</div>
             </div>
@@ -198,6 +198,12 @@ const props = defineProps<{
   color: var(--app-color-beige);
   font-size: .75rem;
   padding: .5rem;
+}
+.v-app-page__block__video__credits {
+  position: relative;
+  color: black;
+  font-size: .75rem;
+  padding: 0 .5rem;
 }
 
 .v-app-page__block__image {
