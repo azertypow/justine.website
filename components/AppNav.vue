@@ -153,6 +153,10 @@ onBeforeUnmount(() => {
       color: var(--app-color-blue);
       font-weight: 600;
     }
+
+    &.router-link-exact-active {
+      font-weight: 600;
+    }
   }
 
 
