@@ -183,6 +183,7 @@ onBeforeUnmount(() => {
 
     > * {
       line-height: 1em;
+      color: inherit;
     }
   }
 }
