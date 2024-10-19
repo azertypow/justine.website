@@ -9,7 +9,7 @@
 
       <div class="v-app-intro__text-wrap">
         <div class="v-app-intro__text-wrap__text" >
-          <p>Justine Ruchat actrice, autrice et créatrice de spectacles.</p>
+          <p>Justine Ruchat actrice, autrice et porteuse de projets.</p>
         </div>
       </div>
 
