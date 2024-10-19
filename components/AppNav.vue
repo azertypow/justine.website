@@ -50,6 +50,9 @@
           <nuxt-link href="/contact">Contact</nuxt-link>
         </div>
         <div class="v-app-nav__menu-toggle"
+             :class="{
+                  'is-open': showMenu
+             }"
              @click="useShowMenu().value = !useShowMenu().value"
         >
           <div></div>
@@ -108,6 +111,11 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
     window.removeEventListener('resize', updateWindowWidth)
+})
+
+useRouter().beforeEach((to, from, next) => {
+    showMenu.value = false
+    next()
 })
 
 </script>
@@ -207,15 +215,26 @@ onBeforeUnmount(() => {
       transition: transform 500ms ease-in-out;
 
       &:first-child {
-        transform: rotate(21deg);
         transform-origin: top left;
       }
 
       &:nth-child(2) {
-        transform: rotate(-21deg);
         transform-origin: bottom left;
       }
     }
+
+    &.is-open {
+      > * {
+        &:first-child {
+          transform: rotate(21deg);
+        }
+
+        &:nth-child(2) {
+          transform: rotate(-21deg);
+        }
+      }
+    }
+
   }
 }
 
