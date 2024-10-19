@@ -1,0 +1,1 @@
+import{q as a,c as s,o,p as t,f as c,a as _,_ as n}from"./CmVp4FBz.js";const p=e=>(t("data-v-99b58e54"),e=e(),c(),e),d={class:"v-agenda"},r=p(()=>_("h1",null,"agenda",-1)),i=[r],h=a({__name:"agenda",props:{message:{}},setup(e){return(l,m)=>(o(),s("section",d,i))}}),u=n(h,[["__scopeId","data-v-99b58e54"]]);export{u as default};
