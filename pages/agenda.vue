@@ -12,21 +12,20 @@
       <div class="app-flex app-flex--justify-center">
 
         <div class="app-flex__col-18 app--width-reg--flex__col-24">
-          <h2>Actualité</h2>
+          <h3 class="v-agenda__subtitle">Actuellement</h3>
         </div>
 
-        <div class="app-flex__col-9"
-             v-for="project of siteInfos?.projectsInfos">
+        <div class="app-flex__col-18">
 
           <div class="v-agenda__card">
-            <h3 class="v-agenda__card__title">{{project.title}}</h3>
-            <p class="v-agenda__card__subtitle">{{project.subtitle}}</p>
+            <h3 class="v-agenda__card__title">{{siteInfos?.projectsInfos[0].title}}</h3>
+            <p class="v-agenda__card__subtitle">{{siteInfos?.projectsInfos[0].subtitle}}</p>
             <div class="v-agenda__card__img-box">
               <img class="v-agenda__card__img-box__img"
-                   :src="project.cover[0]?.url || ''"
+                   :src="siteInfos?.projectsInfos[0].cover[0]?.url || ''"
                    alt="image de l'événement"
               />
-              <div class="v-agenda__card__img-box__date">{{project.date}}</div>
+              <div class="v-agenda__card__img-box__date">{{siteInfos?.projectsInfos[0].date}}</div>
             </div>
           </div>
 
@@ -34,17 +33,21 @@
       </div>
 
 
-      <div class="app-flex app-flex--justify-center">
+      <div class="app-flex app-flex--justify-center"
+             style="margin-top: 10rem; padding-bottom: 25vh"
+      >
 
         <div class="app-flex__col-2"></div>
 
-        <div class="app-flex__col-18 app--width-reg--flex__col-24">
-          <h2>Archive</h2>
+        <div class="app-flex__col-20">
+          <h3 class="v-agenda__subtitle">Passé</h3>
         </div>
 
 
-        <div class="app-flex__col-16">
-          <div class="app-flex app-flex--justify-center">
+        <div class="app-flex__col-18">
+          <div class="app-flex app-flex--justify-center"
+               style="row-gap: 2rem"
+          >
             <div class="app-flex__col-8"
                  v-for="project of siteInfos?.projectsInfos">
 
@@ -95,6 +98,12 @@ const siteInfos = useAppSiteInfo()
   color: var(--app-color-blue);
 }
 
+.v-agenda__subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 2rem;
+}
+
 .v-agenda__card {
   box-sizing: border-box;
   padding: calc( var(--app-gutter) / 2 );
@@ -104,6 +113,7 @@ const siteInfos = useAppSiteInfo()
   font-size: 2rem;
   line-height: 1em;
   margin-bottom: 1rem;
+  margin-top: 0;
 }
 
 .v-agenda__card__subtitle {
