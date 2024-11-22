@@ -110,16 +110,13 @@ const siteInfos = useAppSiteInfo()
 }
 
 .v-agenda__card__title {
-  font-size: 2rem;
-  line-height: 1em;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
   margin-top: 0;
 }
 
 .v-agenda__card__subtitle {
-  font-size: 1rem;
   line-height: 1em;
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .v-agenda__card__img-box {
