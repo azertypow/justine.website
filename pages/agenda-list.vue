@@ -3,6 +3,7 @@
           class="v-agenda-list"
   >
     <main class="v-agenda-list__page"
+          v-if="siteInfos"
     >
       <div class="app-flex app-flex--justify-center">
         <div class="app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-22">
@@ -19,14 +20,14 @@
         <div class="app-flex__col-18">
 
           <div class="v-agenda__card">
-            <h3 class="v-agenda__card__title">{{siteInfos?.projectsInfos[0].title}}</h3>
-            <p class="v-agenda__card__subtitle">{{siteInfos?.projectsInfos[0].subtitle}}</p>
+            <h3 class="v-agenda__card__title">{{siteInfos.projectsInfos[0].title}}</h3>
+            <p class="v-agenda__card__subtitle">{{siteInfos.projectsInfos[0].subtitle}}</p>
             <div class="v-agenda__card__img-box">
               <img class="v-agenda__card__img-box__img"
-                   :src="siteInfos?.projectsInfos[0].cover[0]?.url || ''"
+                   :src="siteInfos.projectsInfos[0].cover[0]?.url || ''"
                    alt="image de l'événement"
               />
-              <div class="v-agenda__card__img-box__date">{{siteInfos?.projectsInfos[0].date}}</div>
+              <div class="v-agenda__card__img-box__date">{{formatDateFromString(siteInfos.projectsInfos[0].date) }} - {{ formatDateFromString('10.01.2025') }}</div>
             </div>
           </div>
 
@@ -43,7 +44,7 @@
         </div>
 
         <div class="app-flex__col-18"
-             v-for="project of siteInfos?.projectsInfos"
+             v-for="project of siteInfos.projectsInfos"
         >
 
           <div class="v-agenda-list__card">
