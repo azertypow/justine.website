@@ -54,7 +54,7 @@ const projectToShow: ComputedRef<{
     if(activeFilter === null) return siteInfos.value?.projectsInfos.slice().reverse()
 
     return siteInfos.value?.projectsInfos.filter((value) => {
-        return value.tags.map(value => value.title).includes(activeFilter)
+        return value.tags.map(value => value.uri).includes(activeFilter)
     }).slice().reverse()
 })
 

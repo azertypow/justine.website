@@ -31,7 +31,7 @@ const route = useRoute()
 
 onMounted(() => {
     loadPageContent().then(() => {
-        useAppArrayOfCurrentProjectFilter().value = project.value?.tags.map(value => value.title) || []
+        useAppArrayOfCurrentProjectFilter().value = project.value?.tags.map(value => value.uri) || []
     })
 })
 

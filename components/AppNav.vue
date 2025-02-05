@@ -9,7 +9,7 @@
           <div class="v-app-nav__sections app-flex app-flex--align-center">
             <div v-for="tag of appSiteInfo?.tags.filter(value => value.title !== 'Film')"
                  :class="{
-                  'is-active': arrayOfFilterToShowActivated.includes(tag.title)
+                  'is-active': arrayOfFilterToShowActivated.includes(tag.uri)
                  }"
                  @click="tagNavigation(tag)"
             >
