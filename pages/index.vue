@@ -58,6 +58,14 @@ const projectToShow: ComputedRef<{
     }).slice().reverse()
 })
 
+onBeforeMount(() =>{
+    const urlQueryPram = useRouter().currentRoute.value.query.q
+
+    if(typeof urlQueryPram !== 'string') return
+
+    useAppActiveFilter().value =  urlQueryPram
+})
+
 </script>
 
 

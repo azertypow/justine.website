@@ -99,8 +99,15 @@ const updateWindowWidth = () => {
 }
 
 function tagNavigation(tag: ApiTag) {
-    if(useRouter().currentRoute.value.path === '/')
-        useAppActiveFilter().value === tag.title ? useAppActiveFilter().value = null : useAppActiveFilter().value = tag.title
+    if(useRouter().currentRoute.value.path === '/') {
+        useAppActiveFilter().value === tag.uri ? useAppActiveFilter().value = null : useAppActiveFilter().value = tag.uri
+
+        router.push({
+            query: {
+                q: useAppActiveFilter().value
+            }
+        })
+    }
     else
         useRouter().push({path: '/'}).then(() => useAppActiveFilter().value = tag.title)
 }
