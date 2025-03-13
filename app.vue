@@ -17,6 +17,7 @@
 </template>
 
 <script setup lang="ts">
+
 import {nextTick, type UnwrapRef} from "vue";
 import {
     useAppArrayOfCurrentProjectFilter,
@@ -24,13 +25,15 @@ import {
     useAppScrollToBottom,
     useAppScrollTopPosition,
     useAppShowIntro,
-    useAppSiteInfo
+    useAppSiteInfo, useAppTextIntro
 } from "~/composable";
-import {fetchSiteInfo} from "~/_utils/ApiFetch";
+import {fetchSiteInfo, fetchTextIntro} from "~/_utils/ApiFetch";
+
 
 const appElement: Ref<UnwrapRef<null | HTMLElement>> = ref(null)
 
 onMounted(async () => {
+    useAppTextIntro().value = await fetchTextIntro()
     useAppSiteInfo().value = await fetchSiteInfo()
 })
 

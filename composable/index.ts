@@ -1,5 +1,5 @@
 import type {Ref} from "vue";
-import type {ApiSiteInfo} from "~/_utils/ApiDefinitions";
+import type {ApiSiteInfo, ApiTextIntro} from "~/_utils/ApiDefinitions";
 
 export const useAppScrollToBottom: () => Ref<'toTop' | 'toBottom'> = () => {
     return useState('useAppScrollToBottom', () => 'toTop')
@@ -7,6 +7,10 @@ export const useAppScrollToBottom: () => Ref<'toTop' | 'toBottom'> = () => {
 
 export const useAppScrollTopPosition: () => Ref<number> = () => {
     return useState('useAppScrollTopPosition', () => 0)
+}
+
+export const useAppTextIntro: () => Ref<null | ApiTextIntro> = () => {
+    return useState('useAppTextIntro', () => null)
 }
 
 export const useAppSiteInfo: () => Ref<null | ApiSiteInfo> = () => {

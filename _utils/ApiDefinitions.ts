@@ -1,3 +1,7 @@
+export type ApiTextIntro = {
+    textIntro: string
+}
+
 export type ApiSiteInfo = {
     'tags': ApiTag[]
     projectsInfos: {

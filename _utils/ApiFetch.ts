@@ -1,7 +1,13 @@
-import type {ApiPageAbout, ApiPageContact, ApiPageContent, ApiSiteInfo} from "~/_utils/ApiDefinitions";
+import type {ApiPageAbout, ApiPageContact, ApiPageContent, ApiSiteInfo, ApiTextIntro} from "~/_utils/ApiDefinitions";
 
 // const apiBaseUrl = 'http://localhost:8000'
 const apiBaseUrl = 'https://justine.sdrvl.ch'
+
+export async function fetchTextIntro(): Promise<ApiTextIntro> {
+    const response = await fetch(`${apiBaseUrl}/text-intro`)
+    return response.json()
+}
+
 
 export async function fetchSiteInfo(): Promise<ApiSiteInfo> {
     const response = await fetch(`${apiBaseUrl}/site-info`)

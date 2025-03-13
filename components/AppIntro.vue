@@ -9,7 +9,7 @@
 
       <div class="v-app-intro__text-wrap">
         <div class="v-app-intro__text-wrap__text" >
-          <p>Justine Ruchat actrice, autrice et porteuse de projets.</p>
+          <p>{{useAppTextIntro().value?.textIntro}}</p>
         </div>
       </div>
 
@@ -38,7 +38,7 @@
 
 
 <script setup lang="ts">
-import {useAppShowIntro} from "~/composable";
+import {useAppShowIntro, useAppTextIntro} from "~/composable";
 import type {UnwrapRef} from "vue";
 import type {LocationQueryValue} from "vue-router";
 
