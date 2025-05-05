@@ -184,6 +184,7 @@ const siteInfos = useAppSiteInfo()
     top: 100%;
     right: calc(-1 * var(--app-gutter--small) );
     z-index: 10;
+    pointer-events: none;
 
     .v-agenda-list__card:hover & {
         display: block;
