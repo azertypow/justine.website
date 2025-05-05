@@ -77,7 +77,6 @@ onMounted(async () => {
 .v--slug__page {
   min-height: calc( 100vh - var(--app-footer-height) - var(--app-nav-height));
   box-sizing: border-box;
-  padding-bottom: 2rem;
 }
 
 .v--slug__page__block__image__credits {

@@ -161,7 +161,6 @@ img {
 .v-a-propos__page {
   min-height: calc( 100vh - var(--app-footer-height) - var(--app-nav-height));
   box-sizing: border-box;
-  padding-bottom: 2rem;
 }
 
 .v-a-propos__block__image__credits {
