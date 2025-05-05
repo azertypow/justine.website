@@ -11,7 +11,7 @@
     <AppIntro/>
     <NuxtPage/>
     <div class="v-app__footer">
-      @2024
+      @2025
     </div>
   </div>
 </template>
