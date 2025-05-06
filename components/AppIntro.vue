@@ -15,6 +15,15 @@
 
       <div class="v-app-intro__img-wrap">
         <img class="v-app-intro__img-wrap__img"
+             v-if="useAppTextIntro().value?.cover_intro && useAppTextIntro().value?.cover_intro?.length"
+             alt="background"
+             :src="useAppTextIntro().value?.cover_intro[0].resize.xxl"
+             :style="{
+                opacity: opacity,
+             }"
+        />
+        <img class="v-app-intro__img-wrap__img"
+             v-else
              alt="background"
              src="/img/Layer-3.jpg"
              :style="{

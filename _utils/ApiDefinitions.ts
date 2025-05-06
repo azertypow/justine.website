@@ -1,5 +1,6 @@
 export type ApiTextIntro = {
     textIntro: string
+    cover_intro: ApiImage[]
 }
 
 export type ApiSiteInfo = {
