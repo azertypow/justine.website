@@ -7,6 +7,7 @@ export type ApiSiteInfo = {
     projectsInfos: {
         cover: ApiImage[]
         title: string
+        hidde_in_home: boolean
         date: string
         tags: ApiTags[]
         slug: string

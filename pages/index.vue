@@ -51,7 +51,9 @@ const projectToShow: ComputedRef<{
 }[] | undefined> = computed(() => {
     const activeFilter = appActiveFilter.value
 
-    if(activeFilter === null) return siteInfos.value?.projectsInfos.slice().reverse()
+    const projectsToShow = siteInfos.value?.projectsInfos.filter((value) => !value.hidde_in_home)
+
+    if(activeFilter === null) return projectsToShow?.slice().reverse()
 
     return siteInfos.value?.projectsInfos.filter((value) => {
         return value.tags.map(value => value.uri).includes(activeFilter)
