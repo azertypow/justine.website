@@ -15,7 +15,7 @@
                  v-if="projectInfos_now && projectInfos_now.length > 0"
             >
 
-                <div class="app-flex__col-18">
+                <div class="app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-22">
                   <template v-for="project of projectInfos_now">
                     <div class="v-agenda__card">
                         <h3 class="v-agenda__card__title">{{ project.title }}</h3>
