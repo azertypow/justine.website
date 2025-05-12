@@ -11,7 +11,7 @@
                 </div>
             </div>
 
-            <div class="app-flex app-flex--justify-center"
+            <div class="app-flex app-flex--justify-center v-agenda-list__page__event-now"
                  v-if="projectInfos_now && projectInfos_now.length > 0"
             >
 
@@ -38,8 +38,7 @@
                 </div>
             </div>
 
-            <div class="app-flex app-flex--justify-center"
-                 style="margin-top: 10rem; padding-bottom: 25vh"
+            <div class="app-flex app-flex--justify-center v-agenda-list__page__event-past"
             >
 
                 <div class="app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-22"
@@ -117,6 +116,15 @@ function dateCompare(a: ApiSiteInfo_Project, b: ApiSiteInfo_Project) {
 
 .v-agenda-list__page__title {
     color: var(--app-color-blue);
+}
+
+.v-agenda-list__page__event-past {
+    padding-bottom: 25vh;
+
+    .v-agenda-list__page__event-now + & {
+        margin-top: 10rem;
+
+    }
 }
 
 .v-agenda-list__subtitle {
