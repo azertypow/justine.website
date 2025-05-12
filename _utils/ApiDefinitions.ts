@@ -5,17 +5,19 @@ export type ApiTextIntro = {
 
 export type ApiSiteInfo = {
     'tags': ApiTag[]
-    projectsInfos: {
-        cover: ApiImage[]
-        title: string
-        hidde_in_home: boolean
-        date: string
-        tags: ApiTags[]
-        slug: string
-        subtitle: string
-    }[]
+    projectsInfos: ApiSiteInfo_Project[]
 }
 
+export type ApiSiteInfo_Project = {
+    cover: ApiImage[]
+    title: string
+    hidde_in_home: boolean
+    date: string
+    dateEnd: string | null
+    tags: ApiTags[]
+    slug: string
+    subtitle: string
+}
 export type ApiTag = {
     "title": string,
     "uuid": string,

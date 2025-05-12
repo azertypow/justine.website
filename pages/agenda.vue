@@ -3,7 +3,7 @@
         class="v-agenda-list"
     >
         <main class="v-agenda-list__page"
-              v-if="siteInfos"
+              v-if="projectsInfos && projectsInfos.length > 0"
         >
             <div class="app-flex app-flex--justify-center">
                 <div class="app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-22">
@@ -11,21 +11,29 @@
                 </div>
             </div>
 
-            <div class="app-flex app-flex--justify-center">
+            <div class="app-flex app-flex--justify-center"
+                 v-if="projectInfos_now && projectInfos_now.length > 0"
+            >
 
                 <div class="app-flex__col-18">
-
+                  <template v-for="project of projectInfos_now">
                     <div class="v-agenda__card">
-                        <h3 class="v-agenda__card__title">{{siteInfos.projectsInfos[0].title}}</h3>
-                        <p class="v-agenda__card__subtitle">{{siteInfos.projectsInfos[0].subtitle}}</p>
+                        <h3 class="v-agenda__card__title">{{ project.title }}</h3>
+                        <p class="v-agenda__card__subtitle">{{ project.subtitle }}</p>
                         <div class="v-agenda__card__img-box">
                             <img class="v-agenda__card__img-box__img"
-                                 :src="siteInfos.projectsInfos[0].cover[0]?.url || ''"
+                                 :src="project.cover[0]?.url || ''"
                                  alt="image de l'événement"
                             />
-                            <div class="v-agenda__card__img-box__date">{{formatDateFromString(siteInfos.projectsInfos[0].date) }} - {{ formatDateFromString('10.01.2025') }}</div>
+                            <div class="v-agenda__card__img-box__date" v-if="project.dateEnd">{{
+                                formatDateFromString(project.date)
+                              }} - {{ formatDateFromString(project.date) }}</div>
+                            <div class="v-agenda__card__img-box__date" v-else>{{
+                                formatDateFromString(project.date)
+                              }}</div>
                         </div>
                     </div>
+                  </template>
 
                 </div>
             </div>
@@ -40,7 +48,7 @@
                 </div>
 
                 <div class="app-flex__col-18 app--width-sm--flex__col-22"
-                     v-for="project of siteInfos.projectsInfos"
+                     v-for="project of projectsInfos"
                 >
                     <nuxt-link  class="v-agenda-list__card"
                                 :to="`/projects/${project.slug}`"
@@ -55,7 +63,8 @@
                                  :src="project.cover[0]?.url || ''"
                                  alt="image de l'événement"
                             />
-                            <div class="v-agenda-list__card__img-box__date">{{ formatDateFromString(project.date) }} - {{ formatDateFromString('10.01.2025') }}</div>
+                            <div class="v-agenda-list__card__img-box__date" v-if="project.dateEnd">{{ formatDateFromString(project.date) }} - {{ formatDateFromString(project.dateEnd) }}</div>
+                            <div class="v-agenda-list__card__img-box__date" v-else                >{{ formatDateFromString(project.date) }}</div>
                             <div class="v-agenda-list__card__img-box__tags">
                                 <div class="v-agenda-list__card__img-box__tags__tag"
                                      v-for="tag of project.tags"
@@ -82,8 +91,14 @@
 import {useAppSiteInfo} from "~/composable";
 import AppProject from "~/components/AppProject.vue";
 import {formatDateFromString} from "~/_utils/formatDateFromString";
+import type {ApiSiteInfo_Project} from "~/_utils/ApiDefinitions";
 
 const siteInfos = useAppSiteInfo()
+
+const projectsInfos: ComputedRef<ApiSiteInfo_Project[] | undefined> = computed(() => siteInfos.value?.projectsInfos.toReversed())
+
+const projectInfos_now    = computed(() => projectsInfos.value?.filter(project => project.dateEnd ? new Date(project.dateEnd) >= new Date() : new Date(project.date) >= new Date() ))
+const projectInfos_past   = computed(() => projectsInfos.value?.filter(project => project.dateEnd ? new Date(project.dateEnd) < new Date() : new Date(project.date) < new Date()))
 
 </script>
 
