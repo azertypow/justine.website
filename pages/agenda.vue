@@ -25,7 +25,7 @@
                                  :src="project.cover[0]?.url || ''"
                                  alt="image de l'événement"
                             />
-                            <div class="v-agenda__card__img-box__date" v-if="project.dateEnd">{{
+                            <div class="v-agenda__card__img-box__date" v-if="project.with_dateEnd && project.dateEnd">{{
                                 formatDateFromString(project.date)
                               }} - {{ formatDateFromString(project.date) }}</div>
                             <div class="v-agenda__card__img-box__date" v-else>{{
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="app-flex__col-18 app--width-sm--flex__col-22"
-                     v-for="project of projectsInfos"
+                     v-for="project of projectInfos_past"
                 >
                     <nuxt-link  class="v-agenda-list__card"
                                 :to="`/projects/${project.slug}`"
@@ -63,7 +63,7 @@
                                  :src="project.cover[0]?.url || ''"
                                  alt="image de l'événement"
                             />
-                            <div class="v-agenda-list__card__img-box__date" v-if="project.dateEnd">{{ formatDateFromString(project.date) }} - {{ formatDateFromString(project.dateEnd) }}</div>
+                            <div class="v-agenda-list__card__img-box__date" v-if="project.with_dateEnd && project.dateEnd">{{ formatDateFromString(project.date) }} - {{ formatDateFromString(project.dateEnd) }}</div>
                             <div class="v-agenda-list__card__img-box__date" v-else                >{{ formatDateFromString(project.date) }}</div>
                             <div class="v-agenda-list__card__img-box__tags">
                                 <div class="v-agenda-list__card__img-box__tags__tag"
@@ -97,8 +97,12 @@ const siteInfos = useAppSiteInfo()
 
 const projectsInfos: ComputedRef<ApiSiteInfo_Project[] | undefined> = computed(() => siteInfos.value?.projectsInfos.toReversed())
 
-const projectInfos_now    = computed(() => projectsInfos.value?.filter(project => project.dateEnd ? new Date(project.dateEnd) >= new Date() : new Date(project.date) >= new Date() ))
-const projectInfos_past   = computed(() => projectsInfos.value?.filter(project => project.dateEnd ? new Date(project.dateEnd) < new Date() : new Date(project.date) < new Date()))
+const projectInfos_now    = computed(() => projectsInfos.value?.filter(project => project.with_dateEnd && project.dateEnd ? new Date(project.dateEnd) >= new Date() : new Date(project.date) >= new Date() ))
+const projectInfos_past   = computed(() => projectsInfos.value?.filter(project => project.with_dateEnd && project.dateEnd ? new Date(project.dateEnd) < new Date()  : new Date(project.date) < new Date()))
+
+function dateCompare(a: ApiSiteInfo_Project, b: ApiSiteInfo_Project) {
+
+}
 
 </script>
 

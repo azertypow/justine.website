@@ -13,6 +13,7 @@ export type ApiSiteInfo_Project = {
     title: string
     hidde_in_home: boolean
     date: string
+    with_dateEnd: boolean
     dateEnd: string | null
     tags: ApiTags[]
     slug: string
