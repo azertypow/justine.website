@@ -52,16 +52,16 @@
                     <nuxt-link  class="v-agenda-list__card"
                                 :to="`/projects/${project.slug}`"
                     >
+                        <img class="v-agenda-list__card__img-box__img"
+                             :src="project.cover[0]?.url || ''"
+                             alt="image de l'événement"
+                        />
                         <div class="v-agenda-list__card__left">
                             <h3 class="v-agenda-list__card__title">{{project.title}}</h3>
                             <p class="v-agenda-list__card__subtitle">{{project.subtitle}}</p>
                         </div>
                         <div class="v-agenda-list__card__right">
                         <div class="v-agenda-list__card__img-box">
-                            <img class="v-agenda-list__card__img-box__img"
-                                 :src="project.cover[0]?.url || ''"
-                                 alt="image de l'événement"
-                            />
                             <div class="v-agenda-list__card__img-box__date" v-if="project.with_dateEnd && project.dateEnd">{{ formatDateFromString(project.date) }} - {{ formatDateFromString(project.dateEnd) }}</div>
                             <div class="v-agenda-list__card__img-box__date" v-else                >{{ formatDateFromString(project.date) }}</div>
                             <div class="v-agenda-list__card__img-box__tags">
@@ -143,6 +143,7 @@ function dateCompare(a: ApiSiteInfo_Project, b: ApiSiteInfo_Project) {
     width: 100%;
     border-bottom: solid 2px;
     color: inherit;
+    position: relative;
 
     * {
         margin: 0 !important;
@@ -204,14 +205,15 @@ function dateCompare(a: ApiSiteInfo_Project, b: ApiSiteInfo_Project) {
 
 .v-agenda-list__card__img-box__img {
     display: none;
-    width: 100%;
+    width: 50%;
     aspect-ratio: 4/3;
     object-fit: cover;
     position: absolute;
     top: 100%;
-    right: calc(-1 * var(--app-gutter--small) );
+    left: 50%;
     z-index: 10;
     pointer-events: none;
+  transform: translateX(-50%);
 
     .v-agenda-list__card:hover & {
         display: block;
