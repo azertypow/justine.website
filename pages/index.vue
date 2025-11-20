@@ -32,11 +32,19 @@
 <script setup lang="ts">
 import AppProject from "~/components/AppProject.vue";
 import {
-    useAppActiveFilter, useAppMapScrollTopInWindow,
-    useAppShowIntro,
+    useAppActiveFilter,
     useAppSiteInfo
 } from "~/composable";
 import type {ApiImage, ApiTags} from "~/_utils/ApiDefinitions";
+import {scrollToTop} from "~/composable/scrollToTop";
+
+definePageMeta({
+  pageTransition: {
+    onBeforeEnter: () => {
+      scrollToTop()
+    },
+  },
+})
 
 const siteInfos = useAppSiteInfo()
 const appActiveFilter: Ref<string | null> = useAppActiveFilter()

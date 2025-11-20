@@ -1,9 +1,9 @@
 <template>
   <div class="v-app"
+       id="app-element"
        :class="{
           'v-app--intro-is-active': useAppShowIntro().value
        }"
-       ref="appElement"
   >
     <div class="v-app__nav">
       <AppNav/>
@@ -60,18 +60,8 @@ function mapScrollTopInWindow() {
 }
 
 useRouter().afterEach(() => {
-    scrollToTop()
-
     useAppArrayOfCurrentProjectFilter().value = []
 })
-
-function scrollToTop() {
-    if(!(appElement.value instanceof HTMLElement)) return
-    appElement.value.scrollTo({
-        top: 0,
-        behavior: 'instant',
-    })
-}
 
 </script>
 
@@ -105,5 +95,17 @@ function scrollToTop() {
   align-items: center;
   color: var(--app-color-beige);
   font-size: .75rem;
+}
+
+.page-enter-active {
+  transition: all 1s .5s;
+}
+.page-leave-active {
+  transition: all .5s;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  filter: blur(.125rem);
 }
 </style>

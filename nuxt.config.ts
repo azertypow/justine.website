@@ -14,6 +14,11 @@ export default defineNuxtConfig({
             { rel: 'manifest', href: '/manifest.json'},
         ]
       },
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in',
+      // duration: 1000,
+    },
   },
   css: [
       '@/assets/_main.scss'
