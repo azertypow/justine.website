@@ -25,6 +25,15 @@ import type {ApiPageContent} from "~/_utils/ApiDefinitions";
 import {fetchProjectBySlug} from "~/_utils/ApiFetch";
 import {useAppArrayOfCurrentProjectFilter} from "~/composable";
 import AppButtonCircle from "~/components/AppButtonCircle.vue";
+import {scrollToTop} from "~/composable/scrollToTop";
+
+definePageMeta({
+  pageTransition: {
+    onBeforeEnter: () => {
+      scrollToTop()
+    },
+  },
+})
 
 const project: Ref<UnwrapRef<null | ApiPageContent>> = ref(null)
 const route = useRoute()

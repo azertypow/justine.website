@@ -91,6 +91,15 @@ import {useAppSiteInfo} from "~/composable";
 import AppProject from "~/components/AppProject.vue";
 import {formatDateFromString} from "~/_utils/formatDateFromString";
 import type {ApiSiteInfo_Project} from "~/_utils/ApiDefinitions";
+import {scrollToTop} from "~/composable/scrollToTop";
+
+definePageMeta({
+  pageTransition: {
+    onBeforeEnter: () => {
+      scrollToTop()
+    },
+  },
+})
 
 const siteInfos = useAppSiteInfo()
 

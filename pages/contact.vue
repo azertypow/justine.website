@@ -54,12 +54,21 @@
 import {fetchContact} from "~/_utils/ApiFetch";
 import type {UnwrapRef} from "vue";
 import type {ApiPageContact} from "~/_utils/ApiDefinitions";
+import {scrollToTop} from "~/composable/scrollToTop";
 
 const contactContent: Ref<UnwrapRef<null | ApiPageContact>> = ref(null)
 
 
 onMounted(async () => {
     contactContent.value = await fetchContact()
+})
+
+definePageMeta({
+  pageTransition: {
+    onBeforeEnter: () => {
+      scrollToTop()
+    },
+  },
 })
 
 

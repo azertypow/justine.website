@@ -132,6 +132,15 @@ import {type UnwrapRef} from 'vue'
 import {youtubeGetVideoIDFromURL} from "~/_utils/YouTube";
 import type {ApiPageAbout} from "~/_utils/ApiDefinitions";
 import {fetchAPropos} from "~/_utils/ApiFetch";
+import {scrollToTop} from "~/composable/scrollToTop";
+
+definePageMeta({
+  pageTransition: {
+    onBeforeEnter: () => {
+      scrollToTop()
+    },
+  },
+})
 
 const aProposContent: Ref<UnwrapRef<null | ApiPageAbout>> = ref(null)
 
