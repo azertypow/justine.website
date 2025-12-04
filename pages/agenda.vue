@@ -105,7 +105,7 @@ const siteInfos = useAppSiteInfo()
 
 const projectsInfos: ComputedRef<ApiSiteInfo_Project[] | undefined> = computed(() => siteInfos.value?.projectsInfos.toReversed())
 
-const projectInfos_now    = computed(() => projectsInfos.value?.filter(project => project.with_dateEnd && project.dateEnd ? new Date(project.dateEnd) >= new Date() : new Date(project.date) >= new Date() ))
+const projectInfos_now    = computed(() => projectsInfos.value?.filter(project => project.with_dateEnd && project.dateEnd ? new Date(project.dateEnd) >= new Date() : new Date(project.date) >= new Date() ).toReversed()  )
 const projectInfos_past   = computed(() => projectsInfos.value?.filter(project => project.with_dateEnd && project.dateEnd ? new Date(project.dateEnd) < new Date()  : new Date(project.date) < new Date()))
 
 function dateCompare(a: ApiSiteInfo_Project, b: ApiSiteInfo_Project) {
