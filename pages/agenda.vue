@@ -29,7 +29,7 @@
                             />
                             <div class="v-agenda__card__img-box__date" v-if="project.with_dateEnd && project.dateEnd">{{
                                 formatDateFromString(project.date)
-                              }} - {{ formatDateFromString(project.date) }}</div>
+                              }} - {{ formatDateFromString(project.dateEnd) }}</div>
                             <div class="v-agenda__card__img-box__date" v-else>{{
                                 formatDateFromString(project.date)
                               }}</div>
