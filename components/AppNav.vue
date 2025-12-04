@@ -109,8 +109,9 @@ function tagNavigation(tag: ApiTag) {
             }
         })
     }
-    else
-        useRouter().push({path: '/'}).then(() => useAppActiveFilter().value = tag.title)
+    else {
+        useRouter().push({path: '/'}).then(() => useAppActiveFilter().value = tag.uri)
+    }
 }
 
 onMounted(() => {
