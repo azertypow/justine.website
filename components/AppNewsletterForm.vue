@@ -128,7 +128,7 @@ const handleSubmit = async () => {
   padding: 0.75rem;
   border-radius: 2rem;
   color: #d8000c;
-  background-color: var(--app-color-blue);
+  background-color: var(--app-color-beige);
 
   &.is-success {
     color: var(--app-color-blue);
