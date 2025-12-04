@@ -16,8 +16,7 @@
                   :focus="project.cover[0]?.focus"
           />
         </div>
-        <div class="app-flex__col-12 app--width-reg--flex__col-24 v-index__project-box app-flex app-flex--justify-center"
-             style="padding-top: 2rem; padding-bottom: 2rem"
+        <div class="app-flex__col-12 app--width-reg--flex__col-24 v-index__project-box app-flex app-flex--justify-center app-flex--align-center"
         >
           <AppNewsletterForm/>
         </div>

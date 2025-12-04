@@ -17,7 +17,9 @@
 
                 <div class="app-flex__col-18 app--width-reg--flex__col-20 app--width-sm--flex__col-22">
                   <template v-for="project of projectInfos_now">
-                    <div class="v-agenda__card">
+                    <nuxt-link class="v-agenda__card"
+                               :to="`/projects/${project.slug}`"
+                    >
                         <h3 class="v-agenda__card__title">{{ project.title }}</h3>
                         <p class="v-agenda__card__subtitle">{{ project.subtitle }}</p>
                         <div class="v-agenda__card__img-box">
@@ -32,7 +34,7 @@
                                 formatDateFromString(project.date)
                               }}</div>
                         </div>
-                    </div>
+                    </nuxt-link>
                   </template>
 
                 </div>
@@ -255,6 +257,7 @@ function dateCompare(a: ApiSiteInfo_Project, b: ApiSiteInfo_Project) {
 .v-agenda__card {
     box-sizing: border-box;
     padding: calc( var(--app-gutter) / 2 );
+    color: black;
 }
 
 .v-agenda__card__title {

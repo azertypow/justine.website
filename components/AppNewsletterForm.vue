@@ -68,6 +68,7 @@ const handleSubmit = async () => {
 .v-newsletter-form__title {
   font-size: 1.5rem;
   font-weight: 600;
+  margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   color: var(--app-color-beige);
 }
