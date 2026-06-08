@@ -41,15 +41,46 @@ const handleSubmit = async () => {
   message.value = ''
 
   try {
-    // Ici, vous pouvez ajouter votre logique d'envoi
-    // Exemple : await $fetch('/api/newsletter', { method: 'POST', body: { email: email.value } })
 
-    // Simulation d'une requête
-    await new Promise(resolve => setTimeout(resolve, 1000))
+      type NewsLetterValues =
+          "Venu du site"
 
-    message.value = 'Merci pour votre inscription !'
-    isSuccess.value = true
-    email.value = ''
+      type SubscriptionResponse = {
+          error: unknown,
+          message: string,
+          status: 'ok' | 'error'
+      }
+
+      type SubscriberDataToSend = {
+          email: string,
+          groups: NewsLetterValues[],
+      }
+
+
+      const sendSSubscription = await fetch('https://justinecontactapi.villa1203.deno.net/subscribe', {
+      // const sendSSubscription = await fetch('http://localhost:8000/subscribe', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              email: email.value,
+              groups: ["Venu du site"],
+          } satisfies SubscriberDataToSend)
+      })
+
+      const response: SubscriptionResponse = await sendSSubscription.json()
+
+      if (response.status === 'ok') {
+        message.value = 'Merci pour votre inscription !'
+        isSuccess.value = true
+        email.value = ''
+        return
+      }
+
+      message.value = `Une erreur est survenue (${response.message}). Veuillez réessayer.`
+      isSuccess.value = false
+
   } catch (error) {
     message.value = 'Une erreur est survenue. Veuillez réessayer.'
     isSuccess.value = false
