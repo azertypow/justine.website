@@ -1,7 +1,7 @@
 import type {ApiPageAbout, ApiPageContact, ApiPageContent, ApiSiteInfo, ApiTextIntro} from "~/_utils/ApiDefinitions";
 
 // const apiBaseUrl = 'http://localhost:8000'
-const apiBaseUrl = 'https://justine.sdrvl.ch'
+const apiBaseUrl = 'https://cms.justine-ruchat.ch'
 
 export async function fetchTextIntro(): Promise<ApiTextIntro> {
     const response = await fetch(`${apiBaseUrl}/text-intro`)
