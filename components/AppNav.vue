@@ -274,7 +274,7 @@ useRouter().beforeEach((to, from, next) => {
 
   @media (max-width: 700px) {
     justify-content: flex-end;
-    gap: 1.5rem 2rem;
+    gap: 1rem 2rem;
   }
 }
 
