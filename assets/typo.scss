@@ -8,6 +8,10 @@ h2 {
   line-height: 1.05em;
   margin-top: 1.25em;
   margin-bottom: 1.25em;
+
+  @media (max-width: 450px) {
+    font-size: 2rem;
+  }
 }
 
 h3 {
