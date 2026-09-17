@@ -281,5 +281,7 @@ useRouter().beforeEach((to, from, next) => {
 .v-app-nav__logo {
   height: 1.3rem;
   fill: var(--app-color-blue);
+
+  max-width: 60dvw;
 }
 </style>
