@@ -188,6 +188,10 @@ function dateCompare(a: ApiSiteInfo_Project, b: ApiSiteInfo_Project) {
         align-items: flex-start;
         margin-top: 1rem !important;
     }
+
+  @media (max-width: 600px) {
+    margin-top: .5rem !important;
+  }
 }
 
 .v-agenda-list__card__title {
@@ -212,6 +216,12 @@ function dateCompare(a: ApiSiteInfo_Project, b: ApiSiteInfo_Project) {
         width: 100%;
         justify-content: space-between;
     }
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      width: 100%;
+      align-items: flex-start;
+    }
 }
 
 .v-agenda-list__card__img-box__img {
@@ -234,13 +244,22 @@ function dateCompare(a: ApiSiteInfo_Project, b: ApiSiteInfo_Project) {
 .v-agenda-list__card__img-box__date {
     bottom: var(--app-gutter);
     left: var(--app-gutter);
+
+  @media (max-width: 600px) {
+    text-align: left;
+  }
 }
 
 .v-agenda-list__card__img-box__tags {
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-end;
     gap: var(--app-gutter--small);
     color: var(--app-color-beige);
+
+  @media (max-width: 600px) {
+    justify-content: flex-start;
+  }
 }
 
 .v-agenda-list__card__img-box__tags__tag {
